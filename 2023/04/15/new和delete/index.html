@@ -13,7 +13,7 @@
 
 
 
-<title>Hello World | Hexo</title>
+<title>new和delete | Hexo</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">new和delete</h1>
             
                 <div class="post-meta">
                     
@@ -205,28 +205,30 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 15, 2023&nbsp;&nbsp;11:57:14</a>
+                        Date: <a href="#">April 15, 2023&nbsp;&nbsp;12:41:26</a>
                         </span>
                     
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                            
+                        </span>
                     
                 </div>
             
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+            <h2 id="new和delete"><a href="#new和delete" class="headerlink" title="new和delete"></a>new和delete</h2><p>###生成int等常见类型</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//格式，模板，生成一种什么类型的存储空间</span><br><span class="line">T* p = new T;</span><br><span class="line"></span><br><span class="line">//生成一块int大小的内存，由指针P指向</span><br><span class="line">int* p = new int;</span><br><span class="line"></span><br><span class="line">//可以进行操作</span><br><span class="line">*p = 5;</span><br><span class="line"></span><br><span class="line">//释放动态空间</span><br><span class="line">delete p;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="生成一维数组"><a href="#生成一维数组" class="headerlink" title="生成一维数组"></a>生成一维数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//格式，模板，生成一种什么类型的存储空间</span><br><span class="line">T* p = new T[N];</span><br><span class="line"></span><br><span class="line">//生成一块int大小的内存，由指针P指向</span><br><span class="line">int* p = new int[N];</span><br><span class="line"></span><br><span class="line">//可以进行操作</span><br><span class="line"><span class="keyword">for</span> (int i = 0; i &lt; N; i++) &#123;</span><br><span class="line">	cin &gt;&gt; *(p + i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//释放动态空间</span><br><span class="line">delete[]p;</span><br><span class="line"></span><br><span class="line">//写成delete p;的话，编译时没有问题，运行时一般也不会发生错误，但实际上会导致动态分配的数组没有被完全释放。</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="生成二维数组"><a href="#生成二维数组" class="headerlink" title="生成二维数组"></a>生成二维数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//生成二维动态数组(m,n矩阵)</span><br><span class="line">int m, n;</span><br><span class="line">cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">int** p = new int* [m];                                           --------------先行后列</span><br><span class="line"><span class="keyword">for</span> (int i = 0; i &lt; m; i++) &#123;</span><br><span class="line">	p[i] = new int[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//数据的输入</span><br><span class="line"><span class="keyword">for</span> (int i = 0; i &lt; m; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">		cin &gt;&gt; p[i][j];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//释放二维动态空间的方法</span><br><span class="line"><span class="keyword">for</span> (int i = 0; i &lt; n; i++) &#123;                                    ---------------先列后行</span><br><span class="line">	delete[] p[i];</span><br><span class="line">&#125;</span><br><span class="line">delete[]p;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用 new 运算符动态分配的内存空间，一定要用 delete 运算符释放。否则，即便程序运行结束，这部分内存空间仍然不会被操作系统收回，从而成为被白白浪费掉的内存垃圾。这种现象也称为“内存泄露”。</span><br><span class="line"></span><br><span class="line">如果一个程序不停地进行动态内存分配而总是没有释放，那么可用内存就会被该程序大量消耗，即便该程序结束也不能恢复。这就会导致操作系统运行速度变慢，甚至无法再启动新的程序。但是，只要重新启动计算机，这种情况就会消失。</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -241,7 +243,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://example.com/2023/04/15/hello-world/">http://example.com/2023/04/15/hello-world/</a></span>
+                        <span><a href="http://example.com/2023/04/15/new%E5%92%8Cdelete/">http://example.com/2023/04/15/new%E5%92%8Cdelete/</a></span>
                     </p>
                 
                 
@@ -264,6 +266,10 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/C/"># C++</a>
+                    
+                        
                 </span>
             </div>
             <div>
