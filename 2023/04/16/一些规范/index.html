@@ -13,7 +13,7 @@
 
 
 
-<title>Category: 2023年4月 | ZyjForward</title>
+<title>一些规范 | ZyjForward</title>
 
 
 
@@ -124,102 +124,150 @@
     }
 </script>
             <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">一些规范</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 16, 2023&nbsp;&nbsp;21:05:56</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="一些规范"><a href="#一些规范" class="headerlink" title="一些规范"></a>一些规范</h3><h4 id="C-的格式控制输出"><a href="#C-的格式控制输出" class="headerlink" title="C++的格式控制输出"></a>C++的格式控制输出</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//头文件</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setiosflags</span>(ios::left)   <span class="comment">//控制输出内容左对齐</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setw</span>(size);    <span class="comment">//控制域宽大小为size</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setprecision</span>(size)      <span class="comment">//控制输出的有效数字位数为size</span></span><br><span class="line">    </span><br><span class="line"><span class="built_in">setiosflags</span>(ios::fixed)    <span class="comment">//控制小数点后面的位数，和setprecision(size)搭配使用</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Zhangyj</span>
+                    </p>
+                
+                
+                
                 
 
-
-    
-<div class="container">
-    <div class="post-wrap categories">
-        <h2 class="post-title">-&nbsp;Categories&nbsp;·&nbsp;2023年4月-</h2>
-    </div>
-    <div class="post-wrap archive">
-    
-    
+            </section>
         
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/C/"># C++</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/16/%E9%9A%8F%E7%AC%94/">随笔</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/16/%E7%AE%80%E5%8D%95%E7%9A%84%E7%AE%97%E6%B3%95/">简单的算法</a>
+            
+        </section>
 
-        
-            <h3>2023</h3>
-        
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E9%9A%8F%E7%AC%94/">随笔</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E4%B8%80%E4%BA%9B%E8%A7%84%E8%8C%83/">一些规范</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E7%AE%80%E5%8D%95%E7%9A%84%E7%AE%97%E6%B3%95/">简单的算法</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E6%95%B0%E5%AD%97%E5%88%86%E7%A6%BB/">数字分离</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">递归问题</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">最大的最小值</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E7%BB%9F%E8%AE%A1%E5%AD%97%E6%AF%8D%E7%9A%84%E4%B8%AA%E6%95%B0/">统计字母的个数</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E4%B8%8A%E5%8D%87%E5%AD%90%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6/">最长连续上升子列的长度</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/15/new%E5%92%8Cdelete/">new和delete</a>
-            <span class="archive-item-date">April 15, 2023</span>
-        </article>
-    
-    
-</div>
+    </article>
 </div>
 
             </div>
