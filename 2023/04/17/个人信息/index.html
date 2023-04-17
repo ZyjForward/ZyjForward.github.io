@@ -13,7 +13,7 @@
 
 
 
-<title>categories | ZyjForward</title>
+<title>个人信息 | ZyjForward</title>
 
 
 
@@ -124,93 +124,151 @@
     }
 </script>
             <div class="main">
-                
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
 
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
 
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
 
-    <div class="container">
-        <div class="post-wrap categories">
-            <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
-            <div class="categories-card">
-                
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">个人信息</h1>
+            
+                <div class="post-meta">
                     
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/2023%E5%B9%B44%E6%9C%88/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    2023年4月
-                                </h3>
-                            </a>
+                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 17, 2023&nbsp;&nbsp;21:41:51</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
                             
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/04/15/new%E5%92%8Cdelete/">new和delete</a>
-                                    </article>
-                                
+                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
                             
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/04/16/%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E4%B8%8A%E5%8D%87%E5%AD%90%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6/">最长连续上升子列的长度</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/04/16/%E7%BB%9F%E8%AE%A1%E5%AD%97%E6%AF%8D%E7%9A%84%E4%B8%AA%E6%95%B0/">统计字母的个数</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/04/16/%E4%B8%80%E4%BA%9B%E8%A7%84%E8%8C%83/">一些规范</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2023/04/16/%E7%AE%80%E5%8D%95%E7%9A%84%E7%AE%97%E6%B3%95/">简单的算法</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                                
-                                
-                            
-                            
-                                <a class="more-post-link" href="/categories/2023%E5%B9%B44%E6%9C%88/">More >></a>
-                            
-                        </div>
-                    </div>
-                
-            </div>
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h4 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h4><p>学校：北京邮电大学</p>
+<p>学院：信息与通信工程学院</p>
+<p>年级：大二</p>
+<p>名言：也许每天努力一点，明天会更好！</p>
 
         </div>
-    </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Zhangyj</span>
+                    </p>
+                
+                
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E4%B8%AA%E4%BA%BA/"># 个人</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/04/17/MySql/">MySql</a>
+            
+        </section>
+
+
+    </article>
+</div>
 
             </div>
             <footer id="footer" class="footer">
