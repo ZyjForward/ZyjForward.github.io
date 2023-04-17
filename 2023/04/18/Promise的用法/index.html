@@ -13,7 +13,7 @@
 
 
 
-<title>个人信息 | ZyjForward</title>
+<title>Promise的用法 | ZyjForward</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">个人信息</h1>
+            <h1 class="post-title">Promise的用法</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 17, 2023&nbsp;&nbsp;21:41:51</a>
+                        Date: <a href="#">April 18, 2023&nbsp;&nbsp;0:21:39</a>
                         </span>
                     
                     
@@ -221,10 +221,46 @@
         </header>
 
         <div class="post-content">
-            <h4 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h4><p>学校：北京邮电大学</p>
-<p>学院：信息与通信工程学院</p>
-<p>年级：大二</p>
-<p>名言：也许每天努力一点，明天会更好！</p>
+            <h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><p>+++</p>
+<p>​                                                                                                                                                                     ——真正的大师永远怀着一颗学徒的心</p>
+<h5 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h5><ul>
+<li>Promise是一种新的技术（ES6规范）</li>
+<li>Promise是Js中进行异步编程的新解决方案（旧方案是单纯使用回调函数）</li>
+<li>从语法上来说，Promise是一个构造函数</li>
+<li>从功能上来说，Promise对象用来封装一个异步操作并可以获取成功/失败的结果值</li>
+</ul>
+<h5 id="2、优势"><a href="#2、优势" class="headerlink" title="2、优势"></a>2、优势</h5><ul>
+<li><p>指定回调函数的方式更灵活</p>
+<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304150847507.png" alt="image-20230304150847507" style="zoom:50%;" /></li>
+<li><p>支持链式调用，可以解决回调地狱的问题</p>
+</li>
+</ul>
+<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304150921322.png" alt="image-20230304150921322" style="zoom:50%;" />
+
+<h5 id="3、使用示例"><a href="#3、使用示例" class="headerlink" title="3、使用示例"></a>3、使用示例</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304151516231.png" alt="image-20230304151516231" style="zoom:50%;" />
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、声明一个<span class="title class_">Promise</span>对象     </span><br><span class="line">	<span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(函数对象)</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、函数对象有两个参数（resolve，reject）=&gt;&#123;异步操作&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、异步操作成立时调用resolve方法，失败时调用reject方法</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、实例化对象有then方法       </span><br><span class="line">	p.<span class="title function_">then</span>(参数是两个函数，前面是成功时的resolve，后面是失败时的reject方法)</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、p.<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="title function_">alert</span>(<span class="string">&#x27;你好，幸会！&#x27;</span>);</span><br><span class="line">&#125;,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="title function_">alert</span>(<span class="string">&#x27;很遗憾，再也不见！&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>==数值不能直接调用了，通过方法的传递。==</p>
+<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304152500692.png" alt="image-20230304152500692" style="zoom:50%;" />
+
+<h5 id="4、Promise-all方法"><a href="#4、Promise-all方法" class="headerlink" title="4、Promise.all方法"></a>4、Promise.all方法</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304155029532.png" alt="image-20230304155029532" style="zoom:50%;" />
+
+<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304154935623.png" alt="image-20230304154935623" style="zoom:50%;" />
+
+<h5 id="5、多个成功或失败回调函数"><a href="#5、多个成功或失败回调函数" class="headerlink" title="5、多个成功或失败回调函数"></a>5、多个成功或失败回调函数</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304155504975.png" alt="image-20230304155504975" style="zoom:50%;" />
+
+
+
+<h5 id="6、then和catch"><a href="#6、then和catch" class="headerlink" title="6、then和catch"></a>6、then和catch</h5><p>支持链式的then调用，支持异常穿透，即只需在最后写catch方法即可。</p>
+<h5 id="7、async"><a href="#7、async" class="headerlink" title="7、async"></a>7、async</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304162719539.png" alt="image-20230304162719539" style="zoom:50%;" />
+
+<h5 id="8、await"><a href="#8、await" class="headerlink" title="8、await"></a>8、await</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304162210562.png" alt="image-20230304162210562" style="zoom:50%;" />
+
+<p>注：try、catch方法异常捕获</p>
+<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230304162449177.png" alt="image-20230304162449177" style="zoom:50%;" />
+
+<h5 id="9、Promise的自定义封装"><a href="#9、Promise的自定义封装" class="headerlink" title="9、Promise的自定义封装"></a>9、Promise的自定义封装</h5><p>链接：<u><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GA411x7z1?p=25&amp;vd_source=86e56f7e58ffdf635fdb18429a4cf610">https://www.bilibili.com/video/BV1GA411x7z1?p=25&amp;vd_source=86e56f7e58ffdf635fdb18429a4cf610</a></u></p>
 
         </div>
 
@@ -248,7 +284,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/%E4%B8%AA%E4%BA%BA/"># 个人</a>
+                        <a href="/tags/%E7%AC%94%E8%AE%B0/"># 笔记</a>
                     
                         
                 </span>
@@ -261,10 +297,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/04/18/ES6/">ES6</a>
+                <a class="prev" rel="prev" href="/2023/04/18/%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/">编程总结</a>
             
             
-            <a class="next" rel="next" href="/2023/04/17/MySql/">MySql</a>
+            <a class="next" rel="next" href="/2023/04/18/globalData%E7%9A%84%E7%94%A8%E6%B3%95/">globalData的用法</a>
             
         </section>
 
