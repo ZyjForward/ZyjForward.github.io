@@ -228,6 +228,101 @@
 
 <h4 id="表的修改"><a href="#表的修改" class="headerlink" title="表的修改"></a>表的修改</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1、为表添加字段</span><br><span class="line">	alter table 表名 add 字段名 类型 (长度) [ comment 注释 ] [ 约束 ];</span><br><span class="line"></span><br><span class="line">2、修改字段的数据类型</span><br><span class="line">	alter table 表名 modify 字段名 新数据类型 (长度);</span><br><span class="line">	</span><br><span class="line">3、修改字段名和字段类型</span><br><span class="line">	alter table 表名 change 旧字段名 新字段名 类型 (长度) [ comment 注释 ] [ 约束 ];</span><br><span class="line"></span><br><span class="line">4、删除字段</span><br><span class="line">	alter table 表名 drop 字段名;</span><br><span class="line">	</span><br><span class="line">5、修改表名</span><br><span class="line">	alter table 表名 rename to 新表名;</span><br><span class="line"></span><br><span class="line">6、删除表</span><br><span class="line">	drop table [ <span class="keyword">if</span> exists ] 表名;</span><br><span class="line">	</span><br><span class="line">7、删除指定表，并重新建表</span><br><span class="line">	<span class="built_in">truncate</span> table 表名;</span><br><span class="line">	</span><br><span class="line">注: 在删除表的时候，表中的全部数据也都会被删除。</span><br></pre></td></tr></table></figure>
 
+<h4 id="插入、修改、删除"><a href="#插入、修改、删除" class="headerlink" title="插入、修改、删除"></a>插入、修改、删除</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">1、给指定字段添加数据</span><br><span class="line">	insert into 表名(字段名1，字段名2，...) values(值1，值2，...);</span><br><span class="line">	</span><br><span class="line">2、给全部字段添加数据</span><br><span class="line">	insert into 表名 values(值1，值2，...);</span><br><span class="line">	</span><br><span class="line">3、批量添加数据</span><br><span class="line">	1、指定字段</span><br><span class="line">	insert into 表名 (字段名1, 字段名2, ...) values (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...) ;</span><br><span class="line">	2、全部字段</span><br><span class="line">	insert into 表名 values (值1, 值2, ...), (值1, 值2, ...), (值1, 值2, ...) ;</span><br><span class="line"></span><br><span class="line">注意事项:</span><br><span class="line">• 插入数据时，指定的字段顺序需要与值的顺序是一一对应的。</span><br><span class="line">• 字符串和日期型数据应该包含在引号中。</span><br><span class="line">• 插入的数据大小，应该在字段的规定范围内。</span><br><span class="line"></span><br><span class="line">4、修改数据</span><br><span class="line">	update 表名 <span class="built_in">set</span> 字段名1 = 值1 , 字段名2 = 值2 , .... [ <span class="built_in">where</span> 条件 ] ;</span><br><span class="line">示例：</span><br><span class="line">	修改<span class="built_in">id</span>为1的数据，将name修改为itheima</span><br><span class="line">	update employee <span class="built_in">set</span> name = <span class="string">&#x27;itheima&#x27;</span> <span class="built_in">where</span> <span class="built_in">id</span> = 1;</span><br><span class="line">	</span><br><span class="line">注意事项:</span><br><span class="line">• 修改语句的条件可以有，也可以没有，如果没有条件，则会修改整张表的所有数据。</span><br><span class="line"></span><br><span class="line">5、删除数据</span><br><span class="line">	delete from 表名 [ <span class="built_in">where</span> 条件 ] ;</span><br><span class="line">示例：</span><br><span class="line">	删除gender为女的员工</span><br><span class="line">	delete from employee <span class="built_in">where</span> gender = <span class="string">&#x27;女&#x27;</span>;</span><br><span class="line">	</span><br><span class="line">注意事项:</span><br><span class="line">• delete 语句的条件可以有，也可以没有，如果没有条件，则会删除整张表的所有数据。</span><br><span class="line">• delete 语句不能删除某一个字段的值(可以使用 update，将该字段值置为 NULL 即可)。</span><br><span class="line">• 当进行删除全部数据操作时，datagrip 会提示我们，询问是否确认删除，我们直接点击 Execute 即可。</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询（重）"><a href="#查询（重）" class="headerlink" title="查询（重）"></a>查询（重）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">查询语法结构：</span><br><span class="line"></span><br><span class="line">    SELECT</span><br><span class="line">        字段列表</span><br><span class="line">    FROM</span><br><span class="line">        表名列表</span><br><span class="line">    WHERE</span><br><span class="line">        条件列表</span><br><span class="line">    GROUP BY</span><br><span class="line">        分组字段列表</span><br><span class="line">    HAVING</span><br><span class="line">        分组后条件列表</span><br><span class="line">    ORDER BY</span><br><span class="line">        排序字段列表</span><br><span class="line">    LIMIT</span><br><span class="line">        分页参数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">基础查询语句：</span><br><span class="line"></span><br><span class="line">	1、查询多个字段</span><br><span class="line">		select 字段1, 字段2, 字段3 ... from 表名 ;</span><br><span class="line">		</span><br><span class="line">	2、查询所有的字段</span><br><span class="line">		select * from 表名;	              //* 号代表查询所有字段，在实际开发中尽量少用（不直观、影响效率）。</span><br><span class="line"></span><br><span class="line">	3、字段设置别名</span><br><span class="line">		select 字段1 [ as 别名1 ] , 字段2 [ as 别名2 ] ... from 表名;</span><br><span class="line">		select 字段1 [ 别名1 ] , 字段2 [ 别名2 ] ... from 表名;</span><br><span class="line">		</span><br><span class="line">	4、去除重复记录</span><br><span class="line">		select distinct 字段列表 from 表名;</span><br><span class="line">		</span><br><span class="line">条件查询语句：</span><br><span class="line"></span><br><span class="line">	select 字段列表 from 表名 <span class="built_in">where</span> 条件列表 ;</span><br></pre></td></tr></table></figure>
+
+<p>1、比较运算符</p>
+<table>
+<thead>
+<tr>
+<th align="center">&gt;</th>
+<th align="center">大于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">等于</td>
+</tr>
+<tr>
+<td align="center">&lt;&gt;或!=</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">between …… and ……</td>
+<td align="center">在某个范围之内（含最大值和最小值）</td>
+</tr>
+<tr>
+<td align="center">in(……)</td>
+<td align="center">在in之后的列表中的值，多选一</td>
+</tr>
+<tr>
+<td align="center">like 占位符</td>
+<td align="center">模糊匹配（_匹配单个字符，%匹配任意个字符）</td>
+</tr>
+<tr>
+<td align="center">is  null</td>
+<td align="center">是null</td>
+</tr>
+</tbody></table>
+<p>2、逻辑运算符</p>
+<table>
+<thead>
+<tr>
+<th>and 和 &amp;&amp;</th>
+<th align="center">并且（多个条件同时成立）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>or或者||</td>
+<td align="center">或者（多个条件任意一个成立）</td>
+</tr>
+<tr>
+<td>not 或者 ！</td>
+<td align="center">非，不是</td>
+</tr>
+</tbody></table>
+<p>3、聚合函数</p>
+<table>
+<thead>
+<tr>
+<th>count</th>
+<th>统计数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>max</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>min</td>
+<td>最小值</td>
+</tr>
+<tr>
+<td>avg</td>
+<td>平均值</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>求和</td>
+</tr>
+</tbody></table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法：select 聚合函数(字段列表) from 表名 ;</span><br></pre></td></tr></table></figure>
+
         </div>
 
         
