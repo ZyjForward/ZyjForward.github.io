@@ -293,41 +293,41 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、省略小括号，当形参有且只有一个的时候</span><br><span class="line">	let add = n =&gt; &#123;</span><br><span class="line">		return n + n;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(add(2));</span><br><span class="line"></span><br><span class="line">2、省略花括号，当代码体只有一条语句时，此时return必须省略，语句的执行结果就是函数的返回值。</span><br><span class="line">	let pow = n =&gt; n + n;</span><br><span class="line">	console.log(pow(2));</span><br></pre></td></tr></table></figure>
 
 <p>5、箭头函数实战示例</p>
-<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230227234712671.png" alt="image-20230227234712671" style="zoom:50%;" />
+<img src="https://s2.loli.net/2023/04/18/8RNmJh3D2vgbPUw.png" alt="image-20230227234712671" style="zoom:50%;" />
 
 <p>1、如何获取到相应的”元素“，getElementById(‘Id’)。</p>
 <p>2、如何为相应的”元素“增加事件，addEventListener(‘事件触发的方式’，触发的事件)。</p>
 <p>3、延时函数的使用方式，setTimeout(‘延时执行的事件’，延时的时间，单位是毫秒)。</p>
 <p>4、this指代问题的两种解决办法，更推荐使用箭头函数的方式。</p>
-<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230227235408474.png" alt="image-20230227235408474" style="zoom:50%;" />
+<img src="https://s2.loli.net/2023/04/18/cRSdY4eI862jJfs.png" alt="image-20230227235408474" style="zoom:50%;" />
 
 <p>1、数组按要求筛选，筛选的方法是filter()。</p>
 <p>2、注意箭头函数的使用方式。</p>
-<h5 id="7、函数参数默认值的设置"><a href="#7、函数参数默认值的设置" class="headerlink" title="7、函数参数默认值的设置"></a>7、函数参数默认值的设置</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230228000259103.png" alt="image-20230228000259103" style="zoom:50%;" />
+<h5 id="7、函数参数默认值的设置"><a href="#7、函数参数默认值的设置" class="headerlink" title="7、函数参数默认值的设置"></a>7、函数参数默认值的设置</h5><img src="https://s2.loli.net/2023/04/18/hsH3CExUBLmqcRe.png" alt="image-20230228000259103" style="zoom:50%;" />
 
 <p>1、有默认值时，没有传值则使用默认值。</p>
 <p>2、是对象时与解构配合使用更好。</p>
-<h5 id="8、rest参数"><a href="#8、rest参数" class="headerlink" title="8、rest参数"></a>8、rest参数</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230228000705411.png" alt="image-20230228000705411" style="zoom:50%;" />
+<h5 id="8、rest参数"><a href="#8、rest参数" class="headerlink" title="8、rest参数"></a>8、rest参数</h5><img src="https://s2.loli.net/2023/04/18/XdbwAQRUglkoS3y.png" alt="image-20230228000705411" style="zoom:50%;" />
 
 <p>注：rest参数得到的返回值是一个数组，更便于使用。</p>
 <h5 id="9、扩展运算符"><a href="#9、扩展运算符" class="headerlink" title="9、扩展运算符"></a>9、扩展运算符</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...扩展运算符能将数组转化为逗号分隔的参数序列</span><br><span class="line"></span><br><span class="line">声明一个数组</span><br><span class="line">const tfboys = [&#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;];             [&#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;]</span><br><span class="line">...tfboys                                       &#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;    </span><br></pre></td></tr></table></figure>
 
-<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230301162845940.png" alt="image-20230301162845940" style="zoom:50%;" />
+<img src="https://s2.loli.net/2023/04/18/yafvT4VXScuEt9m.png" alt="image-20230301162845940" style="zoom:50%;" />
 
 <p>1、用于数组的合并</p>
 <p>2、用于数组的克隆</p>
 <p>3、将伪数组转成真正的数组</p>
 <h5 id="10、迭代器"><a href="#10、迭代器" class="headerlink" title="10、迭代器"></a>10、迭代器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;唐三&#x27;</span>,<span class="string">&#x27;小舞&#x27;</span>,<span class="string">&#x27;戴沐白&#x27;</span>,<span class="string">&#x27;奥斯卡&#x27;</span>];</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">in</span>，输出的是键名。</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> array)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">of</span>，输出的是键值。</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> array)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="11、promise方法"><a href="#11、promise方法" class="headerlink" title="11、promise方法"></a>11、promise方法</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230301170637378.png" alt="image-20230301170637378" style="zoom:50%;" />
+<h5 id="11、promise方法"><a href="#11、promise方法" class="headerlink" title="11、promise方法"></a>11、promise方法</h5><img src="https://s2.loli.net/2023/04/18/aTh1DOYqpwEfdJo.png" alt="image-20230301170637378" style="zoom:50%;" />
 
 <p>1、生成一个promise对象</p>
 <p>2、promise()里面是一个函数，函数有两个参数resolve，reject</p>
 <p>3、异步执行后，可以调用promise对象的then方法</p>
 <p>4、then方法里面有两个参数，是两个函数，前面执行调用成功，后面执行调用失败</p>
-<h5 id="12、async和await"><a href="#12、async和await" class="headerlink" title="12、async和await"></a>12、async和await</h5><img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230301224732272.png" alt="image-20230301224732272" style="zoom:50%;" />
+<h5 id="12、async和await"><a href="#12、async和await" class="headerlink" title="12、async和await"></a>12、async和await</h5><img src="https://s2.loli.net/2023/04/18/8KmE3Hy7IARetzF.png" alt="image-20230301224732272" style="zoom:50%;" />
 
-<img src="C:\Users\27142\AppData\Roaming\Typora\typora-user-images\image-20230301225024034.png" alt="image-20230301225024034" style="zoom:50%;" />
+<img src="https://s2.loli.net/2023/04/18/BdjPsxAcH3SDv4F.png" alt="image-20230301225024034" style="zoom:50%;" />
 
 
         </div>

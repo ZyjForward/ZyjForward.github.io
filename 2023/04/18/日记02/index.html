@@ -13,7 +13,7 @@
 
 
 
-<title>Tag: MySql | ZyjForward</title>
+<title>日记02 | ZyjForward</title>
 
 
 
@@ -124,38 +124,148 @@
     }
 </script>
             <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">日记02</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 18, 2023&nbsp;&nbsp;23:43:20</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h4 id="团体操"><a href="#团体操" class="headerlink" title="团体操"></a>团体操</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">提到这个事，确实是管理者问题特别大，真就是不动脑子，全靠时间凑。</span><br><span class="line"></span><br><span class="line">但是，一些同学们的思想也有问题，开摆了，态度不端正了，但是这些情绪的出现绝对是管理不当造成的，至少从我的所见所闻如此。</span><br><span class="line"></span><br><span class="line">1、所以说：当你做一件事情的时候，一定要考虑好大家的感受，不然到最后效果不好也落骂名。</span><br><span class="line"></span><br><span class="line">先来句中二的话“混浊成为常态，清醒就是一种罪！”</span><br><span class="line"></span><br><span class="line">其实和稀泥并不总是有用的。就像那些妄想在此事上息事宁人的，只会让大家更加的讨厌，因为你走了不该走的路。</span><br><span class="line"></span><br><span class="line">怨意的种子已经埋下了，不会因为你和稀泥的短暂平静而结束，只能是解决掉。</span><br><span class="line"></span><br><span class="line">2、解决掉问题是重要的，看不清风向，乱调风向都是一种极其离谱的事情。</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Zhangyj</span>
+                    </p>
+                
+                
+                
                 
 
-    
-<div class="container">
-    <div class="post-wrap tags">
-        <h2 class="post-title">-&nbsp;Tag&nbsp;·&nbsp;MySql-</h2>
-    </div>
-    <div class="post-wrap archive">
-    
-    
+            </section>
         
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%97%A5%E8%AE%B0/"># 日记</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/04/18/MySql%E7%AC%94%E8%AE%B0/">MySql笔记</a>
+            
+        </section>
 
-        
-            <h3>2023</h3>
-        
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/MySql%E7%AC%94%E8%AE%B0/">MySql笔记</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/17/MySql/">MySql</a>
-            <span class="archive-item-date">April 17, 2023</span>
-        </article>
-    
-    
-</div>
+    </article>
 </div>
 
             </div>
