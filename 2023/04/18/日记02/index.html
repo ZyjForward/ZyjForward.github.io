@@ -127,71 +127,6 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
@@ -221,9 +156,18 @@
         </header>
 
         <div class="post-content">
-            <h4 id="团体操"><a href="#团体操" class="headerlink" title="团体操"></a>团体操</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">提到这个事，确实是管理者问题特别大，真就是不动脑子，全靠时间凑。</span><br><span class="line"></span><br><span class="line">但是，一些同学们的思想也有问题，开摆了，态度不端正了，但是这些情绪的出现绝对是管理不当造成的，至少从我的所见所闻如此。</span><br><span class="line"></span><br><span class="line">1、所以说：当你做一件事情的时候，一定要考虑好大家的感受，不然到最后效果不好也落骂名。</span><br><span class="line"></span><br><span class="line">先来句中二的话“混浊成为常态，清醒就是一种罪！”</span><br><span class="line"></span><br><span class="line">其实和稀泥并不总是有用的。就像那些妄想在此事上息事宁人的，只会让大家更加的讨厌，因为你走了不该走的路。</span><br><span class="line"></span><br><span class="line">怨意的种子已经埋下了，不会因为你和稀泥的短暂平静而结束，只能是解决掉。</span><br><span class="line"></span><br><span class="line">2、解决掉问题是重要的，看不清风向，乱调风向都是一种极其离谱的事情。</span><br></pre></td></tr></table></figure>
-
-
+            <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="1c7fea658b3899e9e8a6f749a9763470a94a10c705627cc85c6804ae210db668">818421634c135c38c07d255ff5870e35d05b675b97b6cfde8f99bd05e05d23d2411d24fe7ed8b20b143a69da4055f84d90c0f4260f0fd085eee1019dcdb806301e5e9026a57e6115d1c225b45055f09ed10c356f0def590d921a8caf9f18541199515c3b0f62df316383a712a59e1997c768c8da10b9b7b354af0a264b867a118311dc361083fa2b11ce6076dd163f2c20c0235e104157115b79165beefa5ac55d90a530529b5f407dc807ae4af56b2e2d16c720ac4e72b5c8582a3304448a62df89d04e15d29c5f8b56472818336628abc748eafa1c41dd47e6dd3586284877486edf7d1388db214c5b6161d950a5920fd1842e48f4983923b75f7914310f1fa77ce853cf7e2b539c48eff23810eaac7660b1c6b568b1384b9dbbccd3678f6a1b3c79e3b3d25b4bda0fa34eb43431d0c228baaf5341716165390a6a9e0b7274c38bdd4845d031c857f1c5c2d5da5780fce262b68f7aef1ff5ee85b05e693cfae4e3645ca338bc59d1533196d82b66b733bf90d28dfe12a6ad93e237c271ee87d0681d3c8a57ebb8d321846095b8817719e9694fc08b9a303db302c479b5fcf1685f4f43d65d9caf251b298da152adfd40954dc0a612313295b6690943467815e8f66835d0ceb753a2afed2b3d519e98e22a59146e85f3ca52da967a84a9e1bb31108a5f039e9dfe239b386f47e3b5081f63ed62732c618ae5e05529230f91ec97b6261255f9d6d1f05497ad70c9fb5260f223390f9472f5af4bfd8cfc03decf5bcc3e9dcf9e88f6006d6371a3d43d366ab515524bdbb80ad6735d489c3b6a9c134af0da2cf6c3f1cf2da097f77551095bc26312959c0bcf49b136eade6c9ba98b5ef9f2a71b4d6107144a98246cf4dc375f0daa8a14d7d1f3e9052c384fedf7ff00da4c0d168fa6c295c4adc37ba47a4d5aab614c6527edacfef9145afea6d36828b4570e1fc3df5413d745adc22ebc2bbe173596bbdaf3b2e80f4359e2331bbf39f852829046d421e1ba57657ac5b9777bd71f81e162249f066490eebd8e13ef34c72dee2f8556752ef9b67f5f372d3f96b6acbb8163d1e31d0c17e3db401a0ea2169ff85cfb8dad83ad9553aa3fb6d92e6dbbac6c9e726c342c9913727982487b85736a9d0cf27a99538e0030e060192317d951c3105be660c749f223b1e583184f5873aad5d9764ed9221b03ce5a9cace5ae80fb035670284b0cefec707313f67d2a2ba6288d107b17997f89d7921ea489e729b569608725ff162d5292f8251a1a270b781cd60efc25952d6e68a2e7e4ce31db3b45a3348b052412f9f9909a93ef0458a46ffff3870770474e5c7a363e68d50a911aa0257c08ff642e7055b2eaea74b7eab71bb60474b437864cb7d355f8d54b8ae0698a91956304bb32b944b8eb80e918e22745f15114eccd882ccb1655af9a94da95df666ff6f76a56eb6193ec48f87fe85d21ad7593179db1063d4ff31f2838c0586c3fd4065fa27bfb8960d5ab5152eb81eb1b06563d7265235165f8eee18f9ce3ef7e745817471a5ca1f6baa21bf60929a445eb4bec22e2940cfbe3b7ab54d21e23bd72f6085b474800fcc529486dd27824a32e0e67b1c7bb97125bab5a61be28f1fc4b6afe4881323799bf6594f95580d7994c53ff8424f38e15341a4c8d1bcbd3b55c8884d2a61b616b9e1de5d9f23a47c7b4da994e9943ba7b83c82f3f7f540b448f2abd9cbfcdae3809d595e7eac7a06dd929ac6abb12af1a1683f164d2274f54a225d9012e072c91c952e8889191ac193c3d53453f6ad97d208697f56a3711bcce0232458752f3c9917fe543517c3a8a2488ac55f4b5a1344a9f4ea778e271f99ef5347bc0b3cc571116c5e580af03113577b2c37afb8f0c15a629219afc4787f5dd2e7e189e5339122d249308cadfbc18319dcfb66cc219c3a4bfcd691f84fc72b8e3b6963e5a7575bd8789240824fa3ddea19ab9bb5bf7ec933224b058145ad165e4074bebc51f06345e1bb3f652a2f0f6e7ee41f634a18ff6b56b072ba713f978db729657de44ee694bf90e9bbd9840595b0ea6a129a1dc6ed05fea38735292dde08b6fdbbafa86d73f87627de6e24e38bbc7ae968a13501f666b347031a0281e68591bef35620622d690d15b98d28a33a90c78ddd6d8da6982f19c6b6e322cce447146f4234fa8129a43829255b804500a0c3e0528e0c24fa1b586f37d0e9acab3acb0dc6740e5c2b50fd4cca739d9a59e2357bafb8c18155e3616a4d19a638f8088b443251a67a658f8142c158c9eb07ed883162975ee40feb13e43b1dbb7a10e8e7541f26be2e170b495f5974850894d9038e074e2740c4121dc71997d3ed9dd661570989fadb09ebc1c0f263b2b4162926c8b876fa4576124349396e5e6c4ae0e2c69bb0b80a7844dd62fe507506aca5c31abb955d3cff6b318e4ad7bec2d92ed8c373c77e8434117f3ddf4f19b3e2fea4a3f4065cd98868e954b025125aabd1a48c4051a5781598ccd907a1be2ca52cf5b2b596d300071fbfb05f8b5f451cad9b91c06171ca7e2dd896b290162102803c96db4df3e83cabf5b59f73a57325ce5edd15cc529d2b6c7b3fc4d269ac005f960d866300809f85eafa956223e8a65818185d6a1999d1114e93177872934b0974a027abcbc0a52c2f0df9da3da55e828e7a76927412acd0b234832a1c9a2c6ef9fcb0128400fae29ce6d304fc94234e9fb37b20a3d90f52d129dc9ba8001bdb8b821965bef7a85b127b948a9552c233db64c</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入查看密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
         </div>
 
         
@@ -273,7 +217,7 @@
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
-        <span>© Zhangyj | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
     </div>
 </footer>
 

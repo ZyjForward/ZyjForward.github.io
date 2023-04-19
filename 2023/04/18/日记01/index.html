@@ -127,71 +127,6 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
@@ -221,10 +156,18 @@
         </header>
 
         <div class="post-content">
-            <h4 id="为什么要努力"><a href="#为什么要努力" class="headerlink" title="为什么要努力"></a>为什么要努力</h4><p>​                   ——记一件事情</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">为什么要努力？</span><br><span class="line"></span><br><span class="line">玩归玩，闹归闹，别给哥们开玩笑。</span><br><span class="line"></span><br><span class="line">  今天参加大创展前检，说真的哥们也紧张，但是呢？总归是要经历，现在还在学校，不会有什么严重的后果。</span><br><span class="line">我尽力地让自己表现得好一点，但是老师问的问题和之前准备的东西完全不一样。-------</span><br><span class="line">                                                                      |</span><br><span class="line">                                                                      |</span><br><span class="line">                                                                      |</span><br><span class="line">                              确实，很正常，台上一分钟，台下十年功。&lt;------</span><br><span class="line">                          不是说你做的准备别人就只能考察这个，这就是一个成长点。</span><br><span class="line">                                                                         </span><br><span class="line">  老师提了很多的建议，这里面有很多都是我们没有去做的，你没有那么高的境界，做事情会遗漏难免。</span><br><span class="line">因为主观臆断，不听取意见的前车之鉴太多了，只有你善于听得进不同的声音才能成事。</span><br><span class="line">见过不同的声音，你相信的才不会那么绝对。</span><br><span class="line">    </span><br><span class="line">  以后要是真的走上社会了面试怎么办，现在失败了还有机会，身无一技之长出去能做什么？</span><br><span class="line">所以说现在这个阶段学习依然是重要的，好好学习本领，和志同道合的人做正确的事情，而不是在那里儿女情长，多愁善感。</span><br><span class="line"></span><br><span class="line">  在无人在意的角落里，我自相积蓄，只为那一人、那一朝绽放。</span><br></pre></td></tr></table></figure>
-
-
+            <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="4b47ff8d918f8022dca4b05456a7854770b83b1581889c653b35250a4c96a5f2">818421634c135c38c07d255ff5870e35d05b675b97b6cfde8f99bd05e05d23d2e92b5b974c7b674f0a98fddd9b5c243dbfc8b5a2d3f37b6cf654046707d94b880a3c9e42be276e77e7d08dfff2d5852b1b767148dc2b5c723f2b92331f761be9b661a9882334924dbc3b3f9a6c6a41b85d8c63ffd6f526e7184008a4ff35fa3f8dee56757de5e0b9123217b95f703c399155e86fe5a658c73d379c8a0229e1fedcf4be57926543b3247e18b0e99cacf43e97cd708f380c1c9df7e70063987eb70994341b380c0a57f46c4302327aec5b801c89df5b4a0f94f84c39f83d312ec5dbe76e7389f79447f64f221b3dd30321592723c3ebb520dcd596f89e258c88088ac96445147791bf7b319473a5b6aef51a2c7ce9c599fb142daa8e796d87bcd10f6004243710d457438136cb587f6b736d2bd2a3c8a7b56eb261d0dc9944a83e18219027366c6f3c575ebc8cf469dc9164fb62b1dbe8cc77a8eca17028ccf7d45cf23c716e6b89e9a2ca6696af9b7147007a64e6f8521f7b842631ddd622530a5cec2608875f7798f31b38666ebc3ce3588e356de17b0c9fcc41b57397c603be177dd3c6b3fbcbc10d3e94575732f39f542f47824ce12a8a7c7e7e432498f50d175e40542b313007d7081751a7cb6d3a7e394b038045581f7646369435b8829e64cda19ad03c34349067422dc1d33b45f0b5dffb098caf88884c495ec943a4f702fe60f4dc430c644494ccd596701728de747aedfd5bbb4a154140adba9faa73f48318cae58d36afd04dcfd9949ccfd9a8f56b03e0851f230a8f819bcf1ef81e5c216faf536a2c79e8d330dc1e295cc22cde0ce04a1dbbdd9fc01722b3264a591a06f82a43bf66483dbe77bdd6f6dc8878a92c9dcd75a567015d2060f840ad28ff058e699a1da8a3700d166138f0baa43847ef2b725e6ba0337cc6c8e789ab9ee0c20b7ac74cbec1e9ea7135cd6530244aa913ce63feabe4183aa3e39a142c33dd6938b74de852ecd13927c2997a6f98e8b00ce8d3dd3e276b56c49210f85834b4733e0df41aa4758ed6b030ed0b5382381d4518d5e185c4a84d8325a38da6324dc2d73726adec43678e7a39db542306df188a86fe27c0854427e998c84a82e76faa740818bb04c38ddd2fdd8256c517e5b3a1bf5f2152032ee9ce1fbcc0a5db1f8667e3fd3e1446388583971bd3a9a278a408909a951191c2b320c4fba6ae6931171f74247b201a575c611c8d7bdaceaadf109808f00c4b741ef64b5bf1ee80bf1bfddc58802843a5cde361429309f2d3678bd7577367c411c0cf3af22602424abf4d54fab5723ccd3388f82478f04c4bd41165acb5a0d358defe0727d61d972da1e7282683951c48cf064d867c7d073ad1660c913a4bf94ec3643b35e14a9077e086e6ae40c20820457565c8b80b64f6b80caf800c087d51ba607371356a92f1d28a46f96190f045a8900e04fa8190988b6438d9f56a6d1377d66247420a3cb9a3861dc693f345bd5a7cbecda913daf750a71732c52eec9434872204f7d6e901c3c51d99a849540fa52f5440805a29e79ba1035328079dcbea44959fcc813ec4eaad142fe95b991488c8e7c3bdef95fc6e1cfb0968fe6e7744eb149d3d24203c1092182ee8b96c7908ef148d55a4e7308c5ae63da482f5fc2078f8ba9b0b6aad65de277079ff22b02220589fb4a396f1d752c7ccb54245aa1033a701870a168bb315cc06f67c5119e06d4093622ed616bc76115852687d42ae1aade6d98e241c12e9c3a6b18de067a77fbcaa8a8aba1d0bfc12f7a9efc0dd08c5aae20c300bd8d2225b60d5d7a9e97e50de69de7e5f859eda9f50c99c1d9889d5162ee6a11cb30cb18e0ffb3d78dad5443818b889ee374322f8034cb5ab4c89a91e4d5e238653f9fadb742d7c4cbb32f83ccff68e0c2e29792647f86a93a50d9c8af3f5e77d3763700fcc6229b5cb2128673989ce24e768402d73973f031047c53c26369830bd47a67f50effda5a45a217860c92a810f24ef26eeac4f8ca747af26def5d56f7f0f2711bcdc23ee7b98cdf52055c77d5a7d8fe3b412a733f26e6467b571d4acd7c6ef0770454c8ce208e2ca34965826094c3b9daabd401fd28565249f1b550cc476565f220f926f22d71066e015c30df7c62a456df32655c0cf5c18cddffca5011288be6ccdf52f4506b77cab458c16ebeb4e5449c288cb65b484ac829b3a308b1f15c11662f396e2cc1d88b704b461516f8af4ff0834f2be78a51512bd44b0b539c843a8bde29abb6f04930ddc8c5c3f7277da2944cd0567e8b25199ecd447cadc17f56e0fe10ba416b4c6e51b6e26f6f838a9a7baf08b01a3bd2032cdd8924ba3e11effb2e64983c1766aa2e1e7738c22df653f349de93fe4bd129081b6b3d488c26ad134e3d2d931576af9ed2d477bf75b2e903a59448df8cd468d350b86f716f4f2feb092470429578b989e7b01b7aeffc553738670b458b86d43fc226eb94b456afa414cd6a70e8f4623fb2b4a353b4ff7f6de9eea9f45453f8d303d7d306068bb78c147dda1e453940a697df188045dafeebb5a358e5d6b113d97f0f6cc55a2707d7421c29e4a0d4c30de0c42d65f87d2242761c29c6fdac2ea614f973aade5bcc181ea9ea6b015352fc954997c0c7b5743f6844ff5a2b649d7edc400ae978d137c26afa6f62aec79a4913114b7192e57d07d9a30eff73a02a503eaffff8fd5bc63462e493b0b143f0c573c42a8b4af306da583e01a1102fe1b16f103bf60c8d897e2ce83f56a6940cd9cc77b10fa01a8457d18873c1783853ffb3e95088955fb1bf382322f5f02026a4ca5b765f5e52325bf321c07a49f4a976983fcfa1e0a4d05e442b2bb2b4e96eba36c460f5fcbd2304ee02a9db66a566c0da992549ec07475b221de35361debe00c4b162fd725a2a559a61186268ceffe010c0f9cb468a4cb50da4965d8f18eeb62c844d6180b8de9f26db158fb4ede985f6aa6ec277cc965fd2bd4db29f90ef38015fa3008bb256938cad01f6f770d14b6245621e7d7160af868a2ee6a34a18647dd1ee23fe169c5fe6a91eaabe083342d296c6b85b6da3b7875f697136a379e065a5dca8d889263901048dae1f10f50c6c95e04b8a9c427f839432a699f2ede095476bcfa3841e0cf252b97f659f048bded4f23a00d3bdc862de5d369b49574d08176cc3325b32c8880eeb011f8d4f5cc9db12bdfd22686a74d516c3220e0ecb25423b79b4f8fbddfaca6e4b6e8de82ba927952971e9798f507a99de7c217e5083b63cbeb6327734aee84994e145635676178d862f648645bedb109e1f18ee2ade290b69814f4fb7330d841852faa275caa4039975915cab2efd3ec1467af49bb14efda53db1369a54b7d4b7401c160377bf70a67f4f4e053fa47c34ecbcb96ef5aa2e1e1684464dd904c34cba6582edc737d428e780980f3012228b086614eb77c4e806849c106e807fc2b8f1782c1611f1844226a9ca71c26fa40ddadae44fb1f6b057aa4ba04ebea821c5c17a22a1cd8a6d5a8e9784c60e2e484a689ccc9982e2035bf8931f6e7a17418459302d5f7959a834468b29d3208f709128ec16aa5b2713934e990b5f085346ad2417f3a1000ed5f43bc5a92bf405493f8d012a606f9617515cc32ffdbb2d36fe5857aced162089b22fa10c7c4c56b27fe6296510c630685a4f6184fc1c412e749904e6b8318e82aaac8e34b63a6a55f6e1c82a5f066c7ededa7046ea11ac7c502d7d885fe92fe3ad01793a451eb0658f06bf6b627759b7919633477b718dd21d44482cd893d82da67d5223302dc537ba21c3aa3cc5d9aac503f5e6b0ee2565ca87da250f8269e63d1faf551a0738e46865961857efb1db0d1737dc3bf445ea72ff25e05987be86b32b1f4a86b8f5a94bd360a1eecdf0e0e255e51aae682454c2455ecbfd62e2124dd871182668fd21d9d516bdff97839b600344237e5da5210f77ccfe5688f0942e2676a02a2a224f50dac0bcbde7557f374842cdaf9f89bf81d88d655e7feae030b8c5ffa430ef6126a15e4f2e4056aabe3b292f6b34a14efd56325df8e4fa36f82fc11fc981dd7679593c1075d0518d5cca4e951c31a2152ba5a5e54763dcd72b224ae81d607f6c49a2076b0a5115cdbf745237c10c6d3cccb4e3c1fbfde72b3f85098665f10b690257f958265fd6a40b22ad179cc265eaaa1fa8b366b4f39e353ff5b91fa81da988e768884116ccad816db7186bedde9f7ce2cb24c8ffe4eef9bd99f7c11463af6278f0fa1aab6a1243ed81e80381b39254ed774ab2c41f2bb866a5551b7306cc56acc77db143bd914d991f50da3516144dd8e267c29a6bf383c709f3c9cddbcfd8a5c7a12272cda</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入查看密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
         </div>
 
         
@@ -274,7 +217,7 @@
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
-        <span>© Zhangyj | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
     </div>
 </footer>
 
