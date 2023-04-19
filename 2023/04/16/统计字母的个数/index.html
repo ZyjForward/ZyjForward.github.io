@@ -200,19 +200,20 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
                     
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-time">
-                        Date: <a href="#">April 16, 2023&nbsp;&nbsp;8:31:02</a>
+                        Date: <a href="#">April 16, 2023</a>
                         </span>
                     
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-category">
-                    Category:
+                    Tag:
                             
-                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                                <a href="/tags/C/">C++</a>
                             
                         </span>
                     
@@ -221,44 +222,31 @@
         </header>
 
         <div class="post-content">
-            <h3 id="统计字母的个数并输出"><a href="#统计字母的个数并输出" class="headerlink" title="统计字母的个数并输出"></a>统计字母的个数并输出</h3><h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">题目描述：</span><br><span class="line">	从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</span><br><span class="line"></span><br><span class="line">输入样例:</span><br><span class="line">	在这里给出一组输入。例如：</span><br><span class="line">    1</span><br><span class="line">    I come quickly !</span><br><span class="line">	结尾无空行</span><br><span class="line">	</span><br><span class="line">输出样例:</span><br><span class="line">    在这里给出相应的输出。例如：</span><br><span class="line">    c:2</span><br><span class="line">    e:1</span><br><span class="line">    i:2</span><br><span class="line">    k:1</span><br><span class="line">    l:1</span><br><span class="line">    m:1</span><br><span class="line">    o:1</span><br><span class="line">    q:1</span><br><span class="line">    u:1</span><br><span class="line">    y:1</span><br><span class="line">    结尾无空行</span><br><span class="line">    </span><br><span class="line">输入样例:</span><br><span class="line">    在这里给出一组输入。例如：</span><br><span class="line">    1</span><br><span class="line">    1</span><br><span class="line">	结尾无空行</span><br><span class="line">	</span><br><span class="line">输出样例:</span><br><span class="line">    在这里给出相应的输出。例如：</span><br><span class="line">    字符串中无字母。</span><br><span class="line">    结尾无空行</span><br></pre></td></tr></table></figure>
+            <h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">题目描述：</span><br><span class="line">	从键盘输入一行或几行字符串，行数由键盘输入，一行字符串用字符数组存储。请统计所输入的字符串中26个字母（不区分大小写）出现的次数，并将出现次数非零的字母统计结果输出到屏幕上，格式参见样例。如果没有字母，请输出字符串中无字母。</span><br><span class="line"></span><br><span class="line">输入样例:</span><br><span class="line">	在这里给出一组输入。例如：</span><br><span class="line">    1</span><br><span class="line">    I come quickly !</span><br><span class="line">	结尾无空行</span><br><span class="line">	</span><br><span class="line">输出样例:</span><br><span class="line">    在这里给出相应的输出。例如：</span><br><span class="line">    c:2</span><br><span class="line">    e:1</span><br><span class="line">    i:2</span><br><span class="line">    k:1</span><br><span class="line">    l:1</span><br><span class="line">    m:1</span><br><span class="line">    o:1</span><br><span class="line">    q:1</span><br><span class="line">    u:1</span><br><span class="line">    y:1</span><br><span class="line">    结尾无空行</span><br><span class="line">    </span><br><span class="line">输入样例:</span><br><span class="line">    在这里给出一组输入。例如：</span><br><span class="line">    1</span><br><span class="line">    1</span><br><span class="line">	结尾无空行</span><br><span class="line">	</span><br><span class="line">输出样例:</span><br><span class="line">    在这里给出相应的输出。例如：</span><br><span class="line">    字符串中无字母。</span><br><span class="line">    结尾无空行</span><br></pre></td></tr></table></figure>
 
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> count1[<span class="number">26</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= n; k++)&#123;                 <span class="comment">//为什么会有等号呢，将你输入行数后换行的回车吸收掉</span></span><br><span class="line">		<span class="type">char</span> buffer[<span class="number">100</span>];</span><br><span class="line">		cin.<span class="built_in">getline</span>(buffer, <span class="number">100</span>, <span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; buffer[i] != <span class="string">&#x27;\0&#x27;</span>; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (buffer[i] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; buffer[i] &lt;= <span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">				count1[buffer[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">			<span class="keyword">if</span> (buffer[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; buffer[i] &lt;= <span class="string">&#x27;Z&#x27;</span>)</span><br><span class="line">				count1[buffer[i] - <span class="string">&#x27;A&#x27;</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> count2[<span class="number">26</span>];</span><br><span class="line">	<span class="type">int</span> count3 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (count1[i] != <span class="number">0</span>)&#123;</span><br><span class="line">			count2[count3] = i;</span><br><span class="line">			count3++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!count3)</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;字符串中无字母。&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count3 - <span class="number">1</span>; i++)</span><br><span class="line">			cout &lt;&lt; <span class="built_in">char</span>(<span class="string">&#x27;a&#x27;</span> + count2[i]) &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; count1[count2[i]] &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">char</span>(<span class="string">&#x27;a&#x27;</span> + count2[count3 - <span class="number">1</span>]) &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; count1[count2[count3 - <span class="number">1</span>]];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> count1[<span class="number">26</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= n; k++)&#123;                 <span class="comment">//为什么会有等号呢，将你输入行数后换行的回车吸收掉</span></span><br><span class="line">		<span class="type">char</span> buffer[<span class="number">100</span>];</span><br><span class="line">		cin.<span class="built_in">getline</span>(buffer, <span class="number">100</span>, <span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; buffer[i] != <span class="string">&#x27;\0&#x27;</span>; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (buffer[i] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; buffer[i] &lt;= <span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">				count1[buffer[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">			<span class="keyword">if</span> (buffer[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; buffer[i] &lt;= <span class="string">&#x27;Z&#x27;</span>)</span><br><span class="line">				count1[buffer[i] - <span class="string">&#x27;A&#x27;</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> count2[<span class="number">26</span>];</span><br><span class="line">	<span class="type">int</span> count3 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span> (count1[i] != <span class="number">0</span>)&#123;</span><br><span class="line">			count2[count3] = i;</span><br><span class="line">			count3++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!count3)</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;字符串中无字母。&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count3 - <span class="number">1</span>; i++)</span><br><span class="line">			cout &lt;&lt; <span class="built_in">char</span>(<span class="string">&#x27;a&#x27;</span> + count2[i]) &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; count1[count2[i]] &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="built_in">char</span>(<span class="string">&#x27;a&#x27;</span> + count2[count3 - <span class="number">1</span>]) &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; count1[count2[count3 - <span class="number">1</span>]];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
 
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/C/"># C++</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
         
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Zhangyj</span>
-                    </p>
-                
-                
-                
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/C/"># C++</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
         <section class="post-nav">
             
                 <a class="prev" rel="prev" href="/2023/04/16/%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">最大的最小值</a>
@@ -268,10 +256,8 @@
             
         </section>
 
-
     </article>
 </div>
-
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">

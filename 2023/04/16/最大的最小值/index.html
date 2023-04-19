@@ -200,19 +200,20 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
                     
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-time">
-                        Date: <a href="#">April 16, 2023&nbsp;&nbsp;21:00:30</a>
+                        Date: <a href="#">April 16, 2023</a>
                         </span>
                     
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-category">
-                    Category:
+                    Tag:
                             
-                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                                <a href="/tags/C/">C++</a>
                             
                         </span>
                     
@@ -221,44 +222,31 @@
         </header>
 
         <div class="post-content">
-            <h3 id="最大的最小值"><a href="#最大的最小值" class="headerlink" title="最大的最小值"></a>最大的最小值</h3><h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">在一个 nXn 的二维整数数组中，每一行都有一个最小值，这 n 个最小值中有一个最大的。请写一段程序找出这个最大的最小值。</span><br><span class="line"></span><br><span class="line">输入格式：</span><br><span class="line">	第一行为一个整数 n ,1&lt;= n &lt;=10，后边为 n 行，是 nXn 个整数（以空格分隔），即 nXn 的二维整数数组。</span><br><span class="line">	</span><br><span class="line">输出格式：</span><br><span class="line">	只有一行为三个整数，依次为这个最大的最小值及它所在行和列的下标（分别以一个空格分隔。如果某行的最小值出现多次，则要求记录列下标最小的那个，如果最大的最小值出现多次，则要求记录下标最小的那行）。测试数据保证所有整数均可以用 int 型存储。</span><br><span class="line">	</span><br><span class="line">输入样例：</span><br><span class="line">	1 2 3</span><br><span class="line">	4 5 6</span><br><span class="line">	7 8 9</span><br><span class="line">	</span><br><span class="line">输出样例：</span><br><span class="line">	7 2 0</span><br></pre></td></tr></table></figure>
+            <h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">在一个 nXn 的二维整数数组中，每一行都有一个最小值，这 n 个最小值中有一个最大的。请写一段程序找出这个最大的最小值。</span><br><span class="line"></span><br><span class="line">输入格式：</span><br><span class="line">	第一行为一个整数 n ,1&lt;= n &lt;=10，后边为 n 行，是 nXn 个整数（以空格分隔），即 nXn 的二维整数数组。</span><br><span class="line">	</span><br><span class="line">输出格式：</span><br><span class="line">	只有一行为三个整数，依次为这个最大的最小值及它所在行和列的下标（分别以一个空格分隔。如果某行的最小值出现多次，则要求记录列下标最小的那个，如果最大的最小值出现多次，则要求记录下标最小的那行）。测试数据保证所有整数均可以用 int 型存储。</span><br><span class="line">	</span><br><span class="line">输入样例：</span><br><span class="line">	1 2 3</span><br><span class="line">	4 5 6</span><br><span class="line">	7 8 9</span><br><span class="line">	</span><br><span class="line">输出样例：</span><br><span class="line">	7 2 0</span><br></pre></td></tr></table></figure>
 
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">	<span class="type">int</span> num;</span><br><span class="line">	<span class="type">int</span> M;</span><br><span class="line">	<span class="type">int</span> N;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//生成二维动态数组</span></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span>** p = <span class="keyword">new</span> <span class="type">int</span>* [n];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		p[i] = <span class="keyword">new</span> <span class="type">int</span>[n];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//生成一个存储空间来存储每行的最小值</span></span><br><span class="line">	Node* q = <span class="keyword">new</span> Node[n];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//数据的输入</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">			cin &gt;&gt; p[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//寻找每一行的最小值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		(q + i)-&gt;num = p[i][<span class="number">0</span>];</span><br><span class="line">		(q + i)-&gt;M = i;</span><br><span class="line">		(q + i)-&gt;N = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p[i][j] &lt; (q + i)-&gt;num) &#123;</span><br><span class="line">				(q + i)-&gt;num = p[i][j];</span><br><span class="line">				(q + i)-&gt;N = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//找到这些最小值里面的最大值</span></span><br><span class="line">	Node size;</span><br><span class="line">	size.num = q-&gt;num;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((q + k)-&gt;num &gt; size.num) &#123;</span><br><span class="line">			size.num = (q + k)-&gt;num;</span><br><span class="line">			size.M = (q + k)-&gt;M;</span><br><span class="line">			size.N = (q + k)-&gt;N;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//二维动态空间的释放</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">delete</span>[] p[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">delete</span>[]p;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//一维动态数组的释放</span></span><br><span class="line">	<span class="keyword">delete</span>[]q;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; size.num &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; size.M &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; size.N;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">	<span class="type">int</span> num;</span><br><span class="line">	<span class="type">int</span> M;</span><br><span class="line">	<span class="type">int</span> N;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//生成二维动态数组</span></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span>** p = <span class="keyword">new</span> <span class="type">int</span>* [n];</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		p[i] = <span class="keyword">new</span> <span class="type">int</span>[n];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//生成一个存储空间来存储每行的最小值</span></span><br><span class="line">	Node* q = <span class="keyword">new</span> Node[n];</span><br><span class="line"></span><br><span class="line">	<span class="comment">//数据的输入</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">			cin &gt;&gt; p[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//寻找每一行的最小值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		(q + i)-&gt;num = p[i][<span class="number">0</span>];</span><br><span class="line">		(q + i)-&gt;M = i;</span><br><span class="line">		(q + i)-&gt;N = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p[i][j] &lt; (q + i)-&gt;num) &#123;</span><br><span class="line">				(q + i)-&gt;num = p[i][j];</span><br><span class="line">				(q + i)-&gt;N = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//找到这些最小值里面的最大值</span></span><br><span class="line">	Node size;</span><br><span class="line">	size.num = q-&gt;num;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((q + k)-&gt;num &gt; size.num) &#123;</span><br><span class="line">			size.num = (q + k)-&gt;num;</span><br><span class="line">			size.M = (q + k)-&gt;M;</span><br><span class="line">			size.N = (q + k)-&gt;N;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//二维动态空间的释放</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">delete</span>[] p[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">delete</span>[]p;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//一维动态数组的释放</span></span><br><span class="line">	<span class="keyword">delete</span>[]q;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; size.num &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; size.M &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; size.N;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
 
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/C/"># C++</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
         
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Zhangyj</span>
-                    </p>
-                
-                
-                
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/C/"># C++</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
         <section class="post-nav">
             
                 <a class="prev" rel="prev" href="/2023/04/16/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">递归问题</a>
@@ -268,10 +256,8 @@
             
         </section>
 
-
     </article>
 </div>
-
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">

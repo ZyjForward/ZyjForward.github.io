@@ -200,19 +200,20 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
                     
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-time">
-                        Date: <a href="#">April 16, 2023&nbsp;&nbsp;21:02:50</a>
+                        Date: <a href="#">April 16, 2023</a>
                         </span>
                     
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-category">
-                    Category:
+                    Tag:
                             
-                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                                <a href="/tags/C/">C++</a>
                             
                         </span>
                     
@@ -221,44 +222,31 @@
         </header>
 
         <div class="post-content">
-            <h3 id="数字分离"><a href="#数字分离" class="headerlink" title="数字分离"></a>数字分离</h3><h4 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">题目描述</span><br><span class="line"></span><br><span class="line">    编写三个函数，分别完成如下任务： 函数一，计算整数a除以整数b的商的整数部分； 函数二，计算整数a除以整数b的余数； 函数三，用函数一和函数二完成分离整数各位的功能，对于输入的1～32767之间的整数，打印出一列数字，每个数字间空一个格。</span><br><span class="line">    </span><br><span class="line">    例如，输入：4562 输出：4 5 6 2</span><br><span class="line"></span><br><span class="line">输入样例:</span><br><span class="line">    在这里给出一组输入。例如：</span><br><span class="line">    2305</span><br><span class="line">    结尾无空行</span><br><span class="line"></span><br><span class="line">输出样例:</span><br><span class="line">    在这里给出相应的输出。例如：</span><br><span class="line">    2 3 0 5</span><br><span class="line">    结尾无空行</span><br></pre></td></tr></table></figure>
+            <h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">题目描述</span><br><span class="line"></span><br><span class="line">    编写三个函数，分别完成如下任务： 函数一，计算整数a除以整数b的商的整数部分； 函数二，计算整数a除以整数b的余数； 函数三，用函数一和函数二完成分离整数各位的功能，对于输入的1～32767之间的整数，打印出一列数字，每个数字间空一个格。</span><br><span class="line">    </span><br><span class="line">    例如，输入：4562 输出：4 5 6 2</span><br><span class="line"></span><br><span class="line">输入样例:</span><br><span class="line">    在这里给出一组输入。例如：</span><br><span class="line">    2305</span><br><span class="line">    结尾无空行</span><br><span class="line"></span><br><span class="line">输出样例:</span><br><span class="line">    在这里给出相应的输出。例如：</span><br><span class="line">    2 3 0 5</span><br><span class="line">    结尾无空行</span><br></pre></td></tr></table></figure>
 
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取整数部分</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getNum1</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x / y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取余数部分</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getNum2</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x % y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span> m = n;           <span class="comment">// ------下面也要用到，但是上面n已经变了，所以要存一个，刚开始错在这里，调试了好久，长个教训咯</span></span><br><span class="line">	<span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">getNum1</span>(n, <span class="number">10</span>)) &#123;</span><br><span class="line">		n = <span class="built_in">getNum1</span>(n, <span class="number">10</span>);</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span>* p = <span class="keyword">new</span> <span class="type">int</span>[count];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">		*(p + i) = <span class="built_in">getNum2</span>(m, <span class="number">10</span>);</span><br><span class="line">		m = <span class="built_in">getNum1</span>(m, <span class="number">10</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = count - <span class="number">1</span>; k &gt; <span class="number">0</span>; k--) &#123;</span><br><span class="line">		cout &lt;&lt; *(p + k) &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	                              <span class="comment">//--------------输出结果不对也可能是越界了（输入的值太大了）</span></span><br><span class="line">	cout &lt;&lt; *p;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">delete</span>[]p;           <span class="comment">//-------------记得释放动态内存</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取整数部分</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getNum1</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x / y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取余数部分</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getNum2</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x % y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="type">int</span> m = n;           <span class="comment">// ------下面也要用到，但是上面n已经变了，所以要存一个，刚开始错在这里，调试了好久，长个教训咯</span></span><br><span class="line">	<span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">getNum1</span>(n, <span class="number">10</span>)) &#123;</span><br><span class="line">		n = <span class="built_in">getNum1</span>(n, <span class="number">10</span>);</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span>* p = <span class="keyword">new</span> <span class="type">int</span>[count];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">		*(p + i) = <span class="built_in">getNum2</span>(m, <span class="number">10</span>);</span><br><span class="line">		m = <span class="built_in">getNum1</span>(m, <span class="number">10</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = count - <span class="number">1</span>; k &gt; <span class="number">0</span>; k--) &#123;</span><br><span class="line">		cout &lt;&lt; *(p + k) &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	                              <span class="comment">//--------------输出结果不对也可能是越界了（输入的值太大了）</span></span><br><span class="line">	cout &lt;&lt; *p;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">delete</span>[]p;           <span class="comment">//-------------记得释放动态内存</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
 
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/C/"># C++</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
         
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Zhangyj</span>
-                    </p>
-                
-                
-                
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/C/"># C++</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
         <section class="post-nav">
             
                 <a class="prev" rel="prev" href="/2023/04/16/%E7%AE%80%E5%8D%95%E7%9A%84%E7%AE%97%E6%B3%95/">简单的算法</a>
@@ -268,10 +256,8 @@
             
         </section>
 
-
     </article>
 </div>
-
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">

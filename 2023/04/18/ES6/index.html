@@ -200,19 +200,20 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Zhangyj</a>
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
                     
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-time">
-                        Date: <a href="#">April 18, 2023&nbsp;&nbsp;0:21:07</a>
+                        Date: <a href="#">April 18, 2023</a>
                         </span>
                     
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-category">
-                    Category:
+                    Tag:
                             
-                                <a href="/categories/2023%E5%B9%B44%E6%9C%88/">2023年4月</a>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
                             
                         </span>
                     
@@ -221,8 +222,7 @@
         </header>
 
         <div class="post-content">
-            <h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><p>+++</p>
-<h5 id="1、let变量"><a href="#1、let变量" class="headerlink" title="1、let变量"></a>1、let变量</h5><p>1、声明变量</p>
+            <h3 id="1、let变量"><a href="#1、let变量" class="headerlink" title="1、let变量"></a>1、let变量</h3><p>1、声明变量</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a;</span><br><span class="line">let a,b;</span><br><span class="line">let a = 10;</span><br><span class="line">let b = [];</span><br><span class="line">let c = &#x27;你好！&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p>2、变量不能重复声明</p>
@@ -237,8 +237,7 @@
 <p>5、不影响作用域链</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    let school = &#x27;北京邮电大学&#x27;;</span><br><span class="line">    function fn()&#123;</span><br><span class="line">    console.log(school);</span><br><span class="line">    &#125;</span><br><span class="line">    fn();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>#####2、const常量</p>
-<p>1、一定要赋初始值</p>
+<h3 id="2、const常量"><a href="#2、const常量" class="headerlink" title="2、const常量"></a>2、const常量</h3><p>1、一定要赋初始值</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const player = &#x27;UZI&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p>2、一般常量使用大写（潜规则）</p>
@@ -253,7 +252,7 @@
 <p>5、对于数组和对象的元素的修改，不算做对常量的修改，不会报错</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const TEAM = [&#x27;UZI&#x27;,&#x27;MLXG&#x27;,&#x27;MING&#x27;,&#x27;XIAOHU&#x27;];</span><br><span class="line">TEAM.push(&#x27;MEIKO&#x27;);</span><br></pre></td></tr></table></figure>
 
-<h5 id="3、变量的解构赋值"><a href="#3、变量的解构赋值" class="headerlink" title="3、变量的解构赋值"></a>3、变量的解构赋值</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。</span><br></pre></td></tr></table></figure>
+<h3 id="3、变量的解构赋值"><a href="#3、变量的解构赋值" class="headerlink" title="3、变量的解构赋值"></a>3、变量的解构赋值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。</span><br></pre></td></tr></table></figure>
 
 <p>1、数组的解构</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const F4 = [&#x27;小沈阳&#x27;，&#x27;刘能&#x27;,&#x27;赵四&#x27;,&#x27;宋小宝&#x27;];</span><br><span class="line">let [xiao,liu,zhao,song] = F4;</span><br><span class="line">console.log(xiao);</span><br><span class="line">console.log(liu);</span><br><span class="line">console.log(zhao);</span><br><span class="line">console.log(song);</span><br></pre></td></tr></table></figure>
@@ -261,7 +260,7 @@
 <p>2、对象的解构</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const zhao = &#123;</span><br><span class="line">	name : &#x27;赵本山&#x27;,</span><br><span class="line">	age : &#x27;不详&#x27;,</span><br><span class="line">	xiaopin: function()&#123;</span><br><span class="line">		console.log(&quot;我可以演小品&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let &#123;name,age,xiaopin&#125; = zhao;                       //解构时注意name,age这些要一一对应。</span><br><span class="line">console.log(name);</span><br><span class="line">console.log(age);</span><br><span class="line">console.log(xiaopin);</span><br><span class="line"></span><br><span class="line">xiaopin();</span><br></pre></td></tr></table></figure>
 
-<h5 id="4、模板字符串"><a href="#4、模板字符串" class="headerlink" title="4、模板字符串"></a>4、模板字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">新的声明字符串的方式，有单引号‘’，双引号“”，现在还有反引号``。</span><br></pre></td></tr></table></figure>
+<h3 id="4、模板字符串"><a href="#4、模板字符串" class="headerlink" title="4、模板字符串"></a>4、模板字符串</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">新的声明字符串的方式，有单引号‘’，双引号“”，现在还有反引号``。</span><br></pre></td></tr></table></figure>
 
 <p>1、声明</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let str = `我也是一个字符串！`;</span><br><span class="line">console.log(str);</span><br></pre></td></tr></table></figure>
@@ -272,11 +271,11 @@
 <p>3、用于变量的拼接</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let love = &#x27;淑芬&#x27;;</span><br><span class="line">let out = `$&#123;love&#125;是我最喜欢的科目！`;</span><br><span class="line">console.log(out);</span><br></pre></td></tr></table></figure>
 
-<h5 id="5、对象的简化写法"><a href="#5、对象的简化写法" class="headerlink" title="5、对象的简化写法"></a>5、对象的简化写法</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法，使得书写更加的简洁。</span><br></pre></td></tr></table></figure>
+<h3 id="5、对象的简化写法"><a href="#5、对象的简化写法" class="headerlink" title="5、对象的简化写法"></a>5、对象的简化写法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES6允许在大括号里面，直接写入变量和函数，作为对象的属性和方法，使得书写更加的简洁。</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let name = &#x27;北京邮电大学&#x27;;</span><br><span class="line">let change = function()&#123;</span><br><span class="line">	console.log(&#x27;你好呀！&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const school = &#123;</span><br><span class="line">	name,</span><br><span class="line">	change,</span><br><span class="line">	improve()&#123;                      //函数方法可以简化为此种形式。</span><br><span class="line">		console.log(&#x27;这样也可以呀！&#x27;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="6、箭头函数"><a href="#6、箭头函数" class="headerlink" title="6、箭头函数"></a>6、箭头函数</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES6允许使用箭头（=&gt;）定义函数</span><br></pre></td></tr></table></figure>
+<h3 id="6、箭头函数"><a href="#6、箭头函数" class="headerlink" title="6、箭头函数"></a>6、箭头函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES6允许使用箭头（=&gt;）定义函数</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">对比：</span><br><span class="line">	起初定义的函数类型：</span><br><span class="line">        let fn = function(a,b)&#123;</span><br><span class="line">            return a + b;</span><br><span class="line">        &#125;</span><br><span class="line">	箭头函数：</span><br><span class="line">        let fn = (a,b) =&gt;&#123;</span><br><span class="line">            return a + b;</span><br><span class="line">        &#125;</span><br><span class="line">	</span><br><span class="line">    let result = fn(1,2);</span><br><span class="line">    console.log(result);</span><br></pre></td></tr></table></figure>
 
@@ -303,66 +302,53 @@
 
 <p>1、数组按要求筛选，筛选的方法是filter()。</p>
 <p>2、注意箭头函数的使用方式。</p>
-<h5 id="7、函数参数默认值的设置"><a href="#7、函数参数默认值的设置" class="headerlink" title="7、函数参数默认值的设置"></a>7、函数参数默认值的设置</h5><img src="https://s2.loli.net/2023/04/18/hsH3CExUBLmqcRe.png" alt="image-20230228000259103" style="zoom:50%;" />
+<h3 id="7、函数参数默认值的设置"><a href="#7、函数参数默认值的设置" class="headerlink" title="7、函数参数默认值的设置"></a>7、函数参数默认值的设置</h3><img src="https://s2.loli.net/2023/04/18/hsH3CExUBLmqcRe.png" alt="image-20230228000259103" style="zoom:50%;" />
 
 <p>1、有默认值时，没有传值则使用默认值。</p>
 <p>2、是对象时与解构配合使用更好。</p>
-<h5 id="8、rest参数"><a href="#8、rest参数" class="headerlink" title="8、rest参数"></a>8、rest参数</h5><img src="https://s2.loli.net/2023/04/18/XdbwAQRUglkoS3y.png" alt="image-20230228000705411" style="zoom:50%;" />
+<h3 id="8、rest参数"><a href="#8、rest参数" class="headerlink" title="8、rest参数"></a>8、rest参数</h3><img src="https://s2.loli.net/2023/04/18/XdbwAQRUglkoS3y.png" alt="image-20230228000705411" style="zoom:50%;" />
 
 <p>注：rest参数得到的返回值是一个数组，更便于使用。</p>
-<h5 id="9、扩展运算符"><a href="#9、扩展运算符" class="headerlink" title="9、扩展运算符"></a>9、扩展运算符</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...扩展运算符能将数组转化为逗号分隔的参数序列</span><br><span class="line"></span><br><span class="line">声明一个数组</span><br><span class="line">const tfboys = [&#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;];             [&#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;]</span><br><span class="line">...tfboys                                       &#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;    </span><br></pre></td></tr></table></figure>
+<h3 id="9、扩展运算符"><a href="#9、扩展运算符" class="headerlink" title="9、扩展运算符"></a>9、扩展运算符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...扩展运算符能将数组转化为逗号分隔的参数序列</span><br><span class="line"></span><br><span class="line">声明一个数组</span><br><span class="line">const tfboys = [&#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;];             [&#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;]</span><br><span class="line">...tfboys                                       &#x27;yyqx&#x27;,&#x27;wjk&#x27;,&#x27;wy&#x27;    </span><br></pre></td></tr></table></figure>
 
 <img src="https://s2.loli.net/2023/04/18/yafvT4VXScuEt9m.png" alt="image-20230301162845940" style="zoom:50%;" />
 
 <p>1、用于数组的合并</p>
 <p>2、用于数组的克隆</p>
 <p>3、将伪数组转成真正的数组</p>
-<h5 id="10、迭代器"><a href="#10、迭代器" class="headerlink" title="10、迭代器"></a>10、迭代器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;唐三&#x27;</span>,<span class="string">&#x27;小舞&#x27;</span>,<span class="string">&#x27;戴沐白&#x27;</span>,<span class="string">&#x27;奥斯卡&#x27;</span>];</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">in</span>，输出的是键名。</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> array)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">of</span>，输出的是键值。</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> array)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10、迭代器"><a href="#10、迭代器" class="headerlink" title="10、迭代器"></a>10、迭代器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;唐三&#x27;</span>,<span class="string">&#x27;小舞&#x27;</span>,<span class="string">&#x27;戴沐白&#x27;</span>,<span class="string">&#x27;奥斯卡&#x27;</span>];</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">in</span>，输出的是键名。</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> array)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">of</span>，输出的是键值。</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> array)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="11、promise方法"><a href="#11、promise方法" class="headerlink" title="11、promise方法"></a>11、promise方法</h5><img src="https://s2.loli.net/2023/04/18/aTh1DOYqpwEfdJo.png" alt="image-20230301170637378" style="zoom:50%;" />
+<h3 id="11、promise方法"><a href="#11、promise方法" class="headerlink" title="11、promise方法"></a>11、promise方法</h3><img src="https://s2.loli.net/2023/04/18/aTh1DOYqpwEfdJo.png" alt="image-20230301170637378" style="zoom:50%;" />
 
 <p>1、生成一个promise对象</p>
 <p>2、promise()里面是一个函数，函数有两个参数resolve，reject</p>
 <p>3、异步执行后，可以调用promise对象的then方法</p>
 <p>4、then方法里面有两个参数，是两个函数，前面执行调用成功，后面执行调用失败</p>
-<h5 id="12、async和await"><a href="#12、async和await" class="headerlink" title="12、async和await"></a>12、async和await</h5><img src="https://s2.loli.net/2023/04/18/8KmE3Hy7IARetzF.png" alt="image-20230301224732272" style="zoom:50%;" />
+<h3 id="12、async和await"><a href="#12、async和await" class="headerlink" title="12、async和await"></a>12、async和await</h3><img src="https://s2.loli.net/2023/04/18/8KmE3Hy7IARetzF.png" alt="image-20230301224732272" style="zoom:50%;" />
 
 <img src="https://s2.loli.net/2023/04/18/BdjPsxAcH3SDv4F.png" alt="image-20230301225024034" style="zoom:50%;" />
 
 
         </div>
 
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/"># 笔记</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
         
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>Zhangyj</span>
-                    </p>
-                
-                
-                
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/%E7%AC%94%E8%AE%B0/"># 笔记</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
         <section class="post-nav">
             
                 <a class="prev" rel="prev" href="/2023/04/18/globalData%E7%9A%84%E7%94%A8%E6%B3%95/">globalData的用法</a>
@@ -372,10 +358,8 @@
             
         </section>
 
-
     </article>
 </div>
-
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
