@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangyj">
+
+
+
+
+
+<title>git | ZyjForward</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Zyj&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">归档</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Zyj&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">归档</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">git</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 26, 2023</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/git/">git</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="git使用教程"><a href="#git使用教程" class="headerlink" title="git使用教程"></a>git使用教程</h3><blockquote>
+<p>整体框架</p>
+</blockquote>
+<img src="https://s2.loli.net/2023/04/26/d1MvjPTaqX7bKFS.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>具体过程</p>
+</blockquote>
+<img src="https://s2.loli.net/2023/04/26/Q9UVbFMw3vx1mq2.png" style="zoom:80%;" />
+
+<blockquote>
+<p>代码操作</p>
+</blockquote>
+<ul>
+<li><p>打开Git Bash，首先设置用户信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;邮箱&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>查看配置信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name                           //查看用户的用户名</span><br><span class="line">git config --global user.email                          //查看用户的邮箱，这邮箱不一定是真实存在的</span><br></pre></td></tr></table></figure></li>
+<li><p>初始化git仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></li>
+<li><p>新建一个文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> 文件（带后缀）</span><br><span class="line">示例：</span><br><span class="line"><span class="built_in">touch</span> file01.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>查看当前文件的状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></li>
+<li><p>将文件从工作区转到暂存区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add 文件名（带后缀）</span><br><span class="line"></span><br><span class="line">将所有的文件提交到暂存区，可以使用git add .      // .是通配符</span><br></pre></td></tr></table></figure></li>
+<li><p>将文件从暂存区转到本地仓库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;注释&quot;</span>                                   //git commit即可提交，-m 可以添加注释，便于理解</span><br></pre></td></tr></table></figure></li>
+<li><p>查看提交日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">//可以添加限制条件，使其满足自己的查看需要</span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span> --all                         //显示所有分支</span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline              //将提交信息显示为一行</span><br><span class="line">git <span class="built_in">log</span> --abbrev-commit               //使输出的commitid更简短</span><br><span class="line">git <span class="built_in">log</span> --graph                       //以图的形式显示</span><br></pre></td></tr></table></figure></li>
+<li><p>版本回退</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commitid</span><br><span class="line">commitid可以使用git-log或者git <span class="built_in">log</span>查看，已经删除的记录可以使用git reflog查看</span><br></pre></td></tr></table></figure></li>
+<li><p>将文件添加至忽略列表（不用 git 管理）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">我们可以在工作目录中创建一个 .gitignore 文件，列出要忽略的文件模式</span><br><span class="line"></span><br><span class="line">可以使用通配符，  * 匹配的内容</span><br><span class="line">示例：</span><br><span class="line">*.txt，所有以.txt结尾的文件</span><br></pre></td></tr></table></figure></li>
+<li><p>直接在Git Bash打开编辑器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi 文件名（带后缀）</span><br></pre></td></tr></table></figure></li>
+<li><p>查看分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure></li>
+<li><p>创建分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名</span><br></pre></td></tr></table></figure></li>
+<li><p>切换分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名            //切换到这个分支名下面</span><br></pre></td></tr></table></figure></li>
+<li><p>创建并切换到一个新的分支     ==√==</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b 分支名        //创建这个分支并且切换到这个分支下</span><br></pre></td></tr></table></figure></li>
+<li><p>合并分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、首先第一步，先切换到你的主线（主分支）上去</span><br><span class="line"></span><br><span class="line">2、执行git merge 分支名称，将这个分支名称上面的修改合并到主线（主分支）上</span><br><span class="line"></span><br><span class="line">3、退出编辑，方式：esc——&gt;：wq——&gt;回车，即可退出编辑完成合并</span><br></pre></td></tr></table></figure></li>
+<li><p>删除分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch -d 分支名                //删除分支时，需要做各种检查</span><br><span class="line"></span><br><span class="line">git branch -D 分支名                //不做任何检查，直接删除</span><br><span class="line"></span><br><span class="line">注：就是说，你的一个分支的修改不需要了，但是没有提交到主分支，他会误以为你误删而出错，此时可以使用D强制删除</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>解决冲突（两个人改了同一个代码文件的同一行代码）</p>
+<blockquote>
+<p>两个分支上同时做了修改，可能会产生冲突。同时修改了同一个文件的同一行，需要手动解决冲突</p>
+</blockquote>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、手动解决文件中冲突的地方</span><br><span class="line"></span><br><span class="line">2、将解决完冲突的文件加入暂存区</span><br><span class="line"></span><br><span class="line">3、提交到本地仓库</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>以精简的方式显示提交记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git-log</span><br></pre></td></tr></table></figure></li>
+<li><p>配置SSH公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、生成SSH公钥</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"></span><br><span class="line">2、查看获取公钥</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">3、验证是否配置成功</span><br><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure></li>
+<li><p>远程仓库的添加、查看、推送</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、添加</span><br><span class="line">git remote add &lt;远程仓库名&gt; &lt;仓库路径&gt;</span><br><span class="line">git remote add 仓库名（例如：orign） 建立的仓库的SSH</span><br><span class="line"></span><br><span class="line">2、查看是否添加成功</span><br><span class="line">git remote</span><br><span class="line"></span><br><span class="line">3、推送到远程仓库</span><br><span class="line">git push &lt;远程仓库名&gt;&lt;远程仓库分支名&gt;&lt;本地分支名&gt;</span><br><span class="line">git push orign master:master         将本地的master推送到远程仓库的master分支，当两者名称相同时，可以只写一个就行</span><br></pre></td></tr></table></figure></li>
+<li><p>查看远程仓库分支和本地分支的对应关系</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -vv</span><br></pre></td></tr></table></figure></li>
+<li><p>将本地分支和远程仓库分支对应起来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream 远程仓库名（例如：origin） 远程分支名（例如：master）:本地分支名（例如：master）</span><br></pre></td></tr></table></figure></li>
+<li><p>git push 简洁地推到远程分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push                          //设置好上面的对应关系之后</span><br></pre></td></tr></table></figure></li>
+<li><p>将远端仓库克隆到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 远程仓库的SSH 本地克隆的文件名（如果不写，则取SSH 中.git前面的那一小段做文件名）</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="https://s2.loli.net/2023/04/27/95pcutNBWqHFbT8.png"></p>
+<ul>
+<li><p>将远程仓库的内容抓取和拉取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1、抓取</span><br><span class="line">规范：git fetch 远程仓库名 远程分支名</span><br><span class="line">示例：</span><br><span class="line">git fetch                           //不指定的话，所有的分支更新内容都要进行抓取</span><br><span class="line">git fetch origin master             //只抓取origin master里面的更新</span><br><span class="line"></span><br><span class="line">注：抓取指令就是将仓库里的更新都抓取到本地，不会进行合并</span><br><span class="line"></span><br><span class="line">2、合并</span><br><span class="line">git merge 远程仓库名/远程分支名</span><br><span class="line">示例：</span><br><span class="line">git merge origin/master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**上面的两步可以合并为一步完成： </span><br><span class="line">拉取：</span><br><span class="line">规范：git pull 远程仓库名 远程分支名</span><br><span class="line">git pull                           //不指定的话，所有的分支更新内容都要进行拉取</span><br><span class="line">git pull origin master             //只拉取origin master里面的更新</span><br><span class="line"></span><br><span class="line">注：拉取指令就是将仓库里的更新都抓取到本地同时进行合并，相当于fetch + merge		</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>解决冲突（两个人改了同一个代码文件的同一行代码）</p>
+<blockquote>
+<p>两个分支上同时做了修改，可能会产生冲突。同时修改了同一个文件的同一行，需要手动解决冲突</p>
+</blockquote>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、手动解决文件中冲突的地方</span><br><span class="line"></span><br><span class="line">2、将解决完冲突的文件加入暂存区</span><br><span class="line"></span><br><span class="line">3、提交到本地仓库</span><br><span class="line"></span><br><span class="line">4、推送到远程仓库</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/git/"># git</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
+        
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/04/25/%E6%95%B0%E5%AD%A6/">数学</a>
+            
+        </section>
+
+    </article>
+</div>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+        !
+        function() {
+        function n(n, e, t) {
+        return n.getAttribute(e) || t
+        }
+        function e(n) {
+        return document.getElementsByTagName(n)
+        }
+        function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+        l: o,
+        z: n(i, "zIndex", -1), //置于主页面背后
+        o: n(i, "opacity", .5), //线条透明度
+        c: n(i, "color", "0,0,0"), //线条颜色
+        n: n(i, "count", 100) //线条数量
+        }
+        }
+        function o() {
+        a = m.width = window.innerWidth ||
+        document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight ||
+        document.documentElement.clientHeight || document.body.clientHeight
+        }
+        function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+        1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+        1), e = x + 1; e < u.length; e++) n = u[e],
+        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+        i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+        2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+        r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+        }
+        var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(n) {
+        window.setTimeout(n, 1e3 / 45)
+        },
+        w = Math.random,
+        y = {
+        x: null,
+        y: null,
+        max: 2e4
+        };
+        m.id = l,
+        m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+        ";opacity:" + d.o,
+        e("body")[0].appendChild(m),
+        o(),
+        window.onresize = o,
+        window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+        },
+        window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+        };
+        for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+        x: h,
+        y: g,
+        xa: v,
+        ya: p,
+        max: 6e3
+        })
+        }
+        u = s.concat([y]),
+        setTimeout(function() {
+        i()
+        },
+        100)
+        } ();
+        </script>
+</body>
+
+</html>
