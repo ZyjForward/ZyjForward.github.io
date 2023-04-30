@@ -13,7 +13,7 @@
 
 
 
-<title>数学 | ZyjForward</title>
+<title>电路分析基础01 | ZyjForward</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">数学</h1>
+            <h1 class="post-title">电路分析基础01</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +205,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-time">
-                        Date: <a href="#">April 25, 2023</a>
+                        Date: <a href="#">April 30, 2023</a>
                         </span>
                     
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -213,7 +213,7 @@
                         <span class="post-category">
                     Tag:
                             
-                                <a href="/tags/%E5%AE%9A%E7%A7%AF%E5%88%86/">定积分</a>
+                                <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/">电路分析基础</a>
                             
                         </span>
                     
@@ -222,11 +222,55 @@
         </header>
 
         <div class="post-content">
-            <h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><blockquote>
-<p>一个代换，将其消掉的办法</p>
+            <blockquote>
+<p>实践是千变万化的，理论是单纯唯一的。</p>
 </blockquote>
-<img src="https://s2.loli.net/2023/04/25/WVOJLxnikDtCP9g.jpg" style="zoom:50%;" />
+<h3 id="电路的分类"><a href="#电路的分类" class="headerlink" title="电路的分类"></a>电路的分类</h3><ul>
+<li>集总参数电路：实际电路的几何尺寸远小于使用时其最高工作频率所对应的波长 </li>
+<li>分布参数电路：实际电路的几何尺寸大于使用时其最高工作频率所对应的波长或二者属于同一数量级时</li>
+</ul>
+<h3 id="关联参考方向"><a href="#关联参考方向" class="headerlink" title="关联参考方向"></a>关联参考方向</h3><p><strong>参考方向是任意选取的，与实际的方向只是正负号的区别</strong></p>
+<p>计算功率时，关联参考方向下计算即所得，非关联参考方向下要加负号。</p>
+<img src="https://s2.loli.net/2023/04/30/OVbURsuSf2v7cyr.jpg" style="zoom: 25%;" />
 
+<p>集总参数电路中的<strong>拓扑约束</strong>，即基尔霍夫定律</p>
+<ul>
+<li>基尔霍夫电压定律</li>
+</ul>
+<p>对于一个闭合回路，电压之和为零。</p>
+<img src="https://s2.loli.net/2023/04/30/5UAHqw46CeQmKuT.jpg" style="zoom:25%;" />
+
+<ul>
+<li>基尔霍夫电流定律</li>
+</ul>
+<p>对于一个结点，流入的电流之和等于流出的电流之和。</p>
+<img src="https://s2.loli.net/2023/04/30/bn9SILf4YXADUQB.jpg" style="zoom:25%;" />
+
+<p><strong>可以是广义的结点与闭合回路，但是只要我们会了最基本的这个就不会有问题，那个也不会快很多</strong></p>
+<p>集总参数电路中的<strong>元件约束</strong>，元件自身对电压和电流的约束</p>
+<p>电压与电流的关系，简称<strong>VCR</strong></p>
+<img src="https://s2.loli.net/2023/04/30/MwUOdkthuFX5Jra.jpg" style="zoom:25%;" />
+
+<h3 id="电压源和电流源"><a href="#电压源和电流源" class="headerlink" title="电压源和电流源"></a>电压源和电流源</h3><p>理想电压源绝不能短路，理想电流源绝不能开路。</p>
+<img src="https://s2.loli.net/2023/04/30/Lk5fBa9iOgrWUpm.jpg" style="zoom:25%;" />
+
+<h3 id="受控源"><a href="#受控源" class="headerlink" title="受控源"></a>受控源</h3><p>分类：</p>
+<p>​        电压控制电压源（<code>VCVS</code>）</p>
+<p>​        电压控制电流源（<code>VCCS</code>）</p>
+<p>​        电流控制电压源（<code>CCVS</code>）</p>
+<p>​        电流控制电流源（<code>CCCS</code>）</p>
+<p>​        <strong>受控源的功率就是受控支路的功率</strong></p>
+<h3 id="电阻的等效变换和输入电阻"><a href="#电阻的等效变换和输入电阻" class="headerlink" title="电阻的等效变换和输入电阻"></a>电阻的等效变换和输入电阻</h3><p>我们只需要掌握最基础的电阻的串并联就可以了，星形和三角形的变换我们用不到，当然你要是愿意记也行</p>
+<p><strong>输入电阻</strong></p>
+<p>定义：端口的电压与电流之比</p>
+<p>算出来什么就是什么，等效电阻也可能是负值</p>
+<h3 id="电源的等效变换"><a href="#电源的等效变换" class="headerlink" title="电源的等效变换"></a>电源的等效变换</h3><p>电压源串起来就做加减法，电流源并起来就做加减法，正负号是最后的方向</p>
+<img src="https://s2.loli.net/2023/05/01/u7ZNPgr1Qm2iRaj.jpg" style="zoom:25%;" />
+
+<h3 id="工程应用"><a href="#工程应用" class="headerlink" title="工程应用"></a>工程应用</h3><ul>
+<li>人体的安全电流是<code>10mA</code></li>
+<li><code>1mAh </code>以<code>1mA </code>的电流持续放电 <code>1</code> 小时</li>
+</ul>
 
         </div>
 
@@ -236,7 +280,7 @@
                         <span class="tag">
                             
                             
-                                <a href="/tags/%E5%AE%9A%E7%A7%AF%E5%88%86/"># 定积分</a>
+                                <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/"># 电路分析基础</a>
                             
                                 
                         </span>
@@ -250,10 +294,8 @@
         
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/04/26/git/">git</a>
             
-            
-            <a class="next" rel="next" href="/2023/04/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84day01/">数据结构day01</a>
+            <a class="next" rel="next" href="/2023/04/26/git/">git</a>
             
         </section>
 
