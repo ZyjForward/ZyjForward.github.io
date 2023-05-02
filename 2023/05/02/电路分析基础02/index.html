@@ -127,6 +127,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -157,7 +222,19 @@
         </header>
 
         <div class="post-content">
-            <p>你在加什么</p>
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对有<code>b</code>条支路的电路，有<code>2b</code>个变量（<code>b</code>个电压和<code>b</code>个电流），即需要<code>2b</code>个独立方程才能完全求解电路，将这种分析方法称为<code>2b法</code></p>
+<h3 id="图论的初步认识"><a href="#图论的初步认识" class="headerlink" title="图论的初步认识"></a>图论的初步认识</h3><p>具有<code>n</code>个节点，<code>b</code>条支路的连通图，其任何一颗树的数支数均等于<code>n-1</code>，连支数等于<code>b-n+1</code></p>
+<p><img src="https://s2.loli.net/2023/05/02/Fmp9BJQZXyonrzO.jpg"></p>
+<p>​        <strong>对于有<code>n</code>个节点，<code>b</code>条支路的电路，可以列出<code>n-1</code>个独立的<code>KCL方程</code>和<code>b-n+1</code>个独立的<code>KVL方程</code>，这样子再加上<code>b</code>个元件的<code>VCR方程</code>，就可以解出电路的<code>2b</code>个电压、电流变量，这种分析方法就是<code>2b法</code></strong></p>
+<p>支路电流法和支路电压法其实就是<code>2b法</code>，消去电压或电流得到的，用最基本的基尔霍夫定律就能解决</p>
+<h3 id="完备的独立电路变量"><a href="#完备的独立电路变量" class="headerlink" title="完备的独立电路变量"></a>完备的独立电路变量</h3><p><code>连支电流</code>，连支电流有<code>b-n+1</code>个</p>
+<p><code>网孔电流</code>，网孔数等于<code>b-n+1</code>个</p>
+<p><code>数支电压</code>，数支电压有<code>n-1</code>个</p>
+<p><code>节点电压</code>，节点电压有<code>n-1</code>个</p>
+<h3 id="节点电压法"><a href="#节点电压法" class="headerlink" title="节点电压法"></a>节点电压法</h3><p><code>一招鲜吃遍天，只需要掌握好节点电压法就够了，2b法也是相当强大的方法</code></p>
+<p><code>重剑不锋，大巧不工</code></p>
+<p><img src="https://s2.loli.net/2023/05/02/p83YZQlNs1zkXgd.jpg"></p>
+<p><strong>不论什么题，如果说你什么技巧都想不起来的话，直接<code>2b</code>法</strong></p>
 
         </div>
 

@@ -13,7 +13,7 @@
 
 
 
-<title>Archives | ZyjForward</title>
+<title>电路分析基础03 | ZyjForward</title>
 
 
 
@@ -124,106 +124,140 @@
     }
 </script>
             <div class="main">
-                <div class="post-wrap archive">
+                <div class="container">
     
     
-        
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
 
-        
-            <h3>2023</h3>
-        
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/20/%E6%97%A5%E8%AE%B004/">日记04</a>
-            <span class="archive-item-date">April 20, 2023</span>
-        </article>
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
     
-        
 
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/19/%E6%97%A5%E8%AE%B003/">日记03</a>
-            <span class="archive-item-date">April 19, 2023</span>
-        </article>
     
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">电路分析基础03</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 2, 2023</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/">电路分析基础</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、理论是单纯唯一的，这一章主要是讲述了一些电路中的基本定理。</span><br><span class="line">2、主要是`看一下课本例题`，看看它是怎么运用的，掌握如何使用就够了。</span><br><span class="line">3、难点在于它的灵活性，怎么从题中发掘出所要考察的定理。</span><br><span class="line">4、戴维南和诺顿掌握计算的规则，推荐使用外加电源法。</span><br></pre></td></tr></table></figure>
+
+<h3 id="齐性定理"><a href="#齐性定理" class="headerlink" title="齐性定理"></a>齐性定理</h3><p><img src="https://s2.loli.net/2023/05/02/MkWJs9VcRe4ytKE.jpg"></p>
+<h3 id="叠加定理"><a href="#叠加定理" class="headerlink" title="叠加定理"></a>叠加定理</h3><p><img src="https://s2.loli.net/2023/05/02/8WomqULAZfB9TRI.jpg"></p>
+<h3 id="替代定理"><a href="#替代定理" class="headerlink" title="替代定理"></a>替代定理</h3><p><img src="https://s2.loli.net/2023/05/02/BGigaM1bjuc5vdT.jpg"></p>
+<h3 id="戴维南定理和诺顿定理"><a href="#戴维南定理和诺顿定理" class="headerlink" title="戴维南定理和诺顿定理"></a>戴维南定理和诺顿定理</h3><p><img src="https://s2.loli.net/2023/05/02/pY7UvsnA3xaCREI.jpg"></p>
+<h3 id="最大功率传输定理"><a href="#最大功率传输定理" class="headerlink" title="最大功率传输定理"></a>最大功率传输定理</h3><p><img src="https://s2.loli.net/2023/05/02/A9Kqx6nITcNyYZ8.jpg"></p>
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/"># 电路分析基础</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
         
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/05/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E6%95%99%E7%A8%8B/">量子力学教程</a>
+            
+        </section>
 
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/%E6%97%A5%E8%AE%B002/">日记02</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/MySql%E7%AC%94%E8%AE%B0/">MySql笔记</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/%E6%97%A5%E8%AE%B001/">日记01</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/">编程总结</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/Promise%E7%9A%84%E7%94%A8%E6%B3%95/">Promise的用法</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/globalData%E7%9A%84%E7%94%A8%E6%B3%95/">globalData的用法</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/18/ES6/">ES6</a>
-            <span class="archive-item-date">April 18, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/17/MySql/">MySql</a>
-            <span class="archive-item-date">April 17, 2023</span>
-        </article>
-    
-    
-    <nav class="pagination">
-        <a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a>
-    </nav>
-
+    </article>
 </div>
             </div>
             <footer id="footer" class="footer">
