@@ -13,7 +13,7 @@
 
 
 
-<title>Promise的用法 | ZyjForward</title>
+<title>电路分析基础02 | ZyjForward</title>
 
 
 
@@ -127,76 +127,11 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Promise的用法</h1>
+            <h1 class="post-title">电路分析基础02</h1>
             
                 <div class="post-meta">
                     
@@ -205,7 +140,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     
                         <span class="post-time">
-                        Date: <a href="#">April 18, 2023</a>
+                        Date: <a href="#">May 2, 2023</a>
                         </span>
                     
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -213,7 +148,7 @@
                         <span class="post-category">
                     Tag:
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                                <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/">电路分析基础</a>
                             
                         </span>
                     
@@ -222,43 +157,7 @@
         </header>
 
         <div class="post-content">
-            <p>​                                                                                                                                                                     ——真正的大师永远怀着一颗学徒的心</p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li>Promise是一种新的技术（ES6规范）</li>
-<li>Promise是Js中进行异步编程的新解决方案（旧方案是单纯使用回调函数）</li>
-<li>从语法上来说，Promise是一个构造函数</li>
-<li>从功能上来说，Promise对象用来封装一个异步操作并可以获取成功/失败的结果值</li>
-</ul>
-<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
-<li><p>指定回调函数的方式更灵活</p>
-<img src="https://s2.loli.net/2023/04/18/Czg7kaGP85FD6vX.png" alt="image-20230304150847507" style="zoom:50%;" /></li>
-<li><p>支持链式调用，可以解决回调地狱的问题</p>
-</li>
-</ul>
-<img src="https://s2.loli.net/2023/04/18/ZTiyhdjcCseI8kS.png" alt="image-20230304150921322" style="zoom:50%;" />
-
-<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><img src="https://s2.loli.net/2023/04/18/AzWDiyfvlIoGHP6.png" alt="image-20230304151516231" style="zoom:50%;" />
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、声明一个<span class="title class_">Promise</span>对象     </span><br><span class="line">	<span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(函数对象)</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、函数对象有两个参数（resolve，reject）=&gt;&#123;异步操作&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、异步操作成立时调用resolve方法，失败时调用reject方法</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、实例化对象有then方法       </span><br><span class="line">	p.<span class="title function_">then</span>(参数是两个函数，前面是成功时的resolve，后面是失败时的reject方法)</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、p.<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="title function_">alert</span>(<span class="string">&#x27;你好，幸会！&#x27;</span>);</span><br><span class="line">&#125;,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="title function_">alert</span>(<span class="string">&#x27;很遗憾，再也不见！&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>数值不能直接调用了，通过方法的传递</p>
-<img src="https://s2.loli.net/2023/04/18/DOGIA4eZYH1L9uh.png" alt="image-20230304152500692" style="zoom:50%;" />
-
-<h3 id="Promise-all方法"><a href="#Promise-all方法" class="headerlink" title="Promise.all方法"></a>Promise.all方法</h3><img src="https://s2.loli.net/2023/04/18/uS6LjY2zlIs8ywV.png" alt="image-20230304155029532" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2023/04/18/NsvHeOdnF1rc3P2.png" alt="image-20230304154935623" style="zoom:50%;" />
-
-<h3 id="多个成功或失败回调函数"><a href="#多个成功或失败回调函数" class="headerlink" title="多个成功或失败回调函数"></a>多个成功或失败回调函数</h3><p>一个Promise指定多个成功/失败回调，都会调用吗？</p>
-<p>当Promise改变为对应的状态时都会调用</p>
-<h3 id="then和catch"><a href="#then和catch" class="headerlink" title="then和catch"></a>then和catch</h3><p>支持链式的then调用，支持异常穿透，即只需在最后写catch方法即可。</p>
-<h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><img src="https://s2.loli.net/2023/04/18/TBUoqjtmAWIiFxw.png" alt="image-20230304162719539" style="zoom:50%;" />
-
-<h3 id="await"><a href="#await" class="headerlink" title="await"></a>await</h3><img src="https://s2.loli.net/2023/04/18/NfLVMilE9FDXPYK.png" alt="image-20230304162210562" style="zoom:50%;" />
-
-<p>注：try、catch方法异常捕获</p>
-<img src="https://s2.loli.net/2023/04/18/jvklPGocCBe6pVr.png" alt="image-20230304162449177" style="zoom:50%;" />
-
-<h3 id="Promise的自定义封装"><a href="#Promise的自定义封装" class="headerlink" title="Promise的自定义封装"></a>Promise的自定义封装</h3><p>链接：<u><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GA411x7z1?p=25&amp;vd_source=86e56f7e58ffdf635fdb18429a4cf610">https://www.bilibili.com/video/BV1GA411x7z1?p=25&amp;vd_source=86e56f7e58ffdf635fdb18429a4cf610</a></u></p>
+            <p>你在加什么</p>
 
         </div>
 
@@ -268,7 +167,7 @@
                         <span class="tag">
                             
                             
-                                <a href="/tags/%E7%AC%94%E8%AE%B0/"># 笔记</a>
+                                <a href="/tags/%E7%94%B5%E8%B7%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/"># 电路分析基础</a>
                             
                                 
                         </span>
@@ -282,10 +181,10 @@
         
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/04/18/%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/">编程总结</a>
+                <a class="prev" rel="prev" href="/2023/05/02/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E6%95%99%E7%A8%8B/">量子力学教程</a>
             
             
-            <a class="next" rel="next" href="/2023/04/18/globalData%E7%9A%84%E7%94%A8%E6%B3%95/">globalData的用法</a>
+            <a class="next" rel="next" href="/2023/05/01/%E6%97%A5%E8%AE%B007/">日记07</a>
             
         </section>
 
