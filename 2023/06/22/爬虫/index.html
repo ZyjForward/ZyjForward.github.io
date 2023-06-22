@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangyj">
+
+
+
+
+
+<title>爬虫 | ZyjForward</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Zyj&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Zyj&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">爬虫</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 22, 2023</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="爬虫笔记"><a href="#爬虫笔记" class="headerlink" title="爬虫笔记"></a>爬虫笔记</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、通过一个程序，根据url进行爬取网页，获取有用的信息</span><br><span class="line">2、使用程序模拟浏览器，去向服务器发送请求，获取响应信息</span><br><span class="line"></span><br><span class="line">爬虫的核心</span><br><span class="line">1、爬取网页：爬取整个网页，包含网页中所有的内容</span><br><span class="line">2、解析数据：将网页中你得到的信息进行解析</span><br><span class="line">3、难点：爬虫与反爬虫的博弈</span><br></pre></td></tr></table></figure>
+
+<h3 id="urllib库的使用"><a href="#urllib库的使用" class="headerlink" title="urllib库的使用"></a><code>urllib</code>库的使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.urlopen()      模拟浏览器向服务器发送请求</span><br><span class="line">response      服务器返回的数据</span><br><span class="line">	response的数据类型是HttpResponse</span><br><span class="line">    字节--&gt;字符串</span><br><span class="line">    	解码decode</span><br><span class="line">    字符串--&gt;字节</span><br><span class="line">    	编码encode</span><br><span class="line">    <span class="built_in">read</span>()      字节形式读取二进制，扩展<span class="built_in">read</span>(5)返回前几个字节</span><br><span class="line">    readline()      读取一行</span><br><span class="line">    readlines()      一行一行的读取，直至结束</span><br><span class="line">    getcode()      获取状态码</span><br><span class="line">    geturl()      获取url</span><br><span class="line">    getheaders()      获取headers</span><br><span class="line">urllib.request.urlretrieve()</span><br><span class="line">	请求网页</span><br><span class="line">    请求图片</span><br><span class="line">    请求视频</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.requset</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(url)</span><br><span class="line"></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<h3 id="一个类型和六个方法"><a href="#一个类型和六个方法" class="headerlink" title="一个类型和六个方法"></a>一个类型和六个方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一个类型</span><br><span class="line">	HttpResponse</span><br><span class="line">六个方法	</span><br><span class="line">	read()      字节形式读取二进制，扩展read(<span class="number">5</span>)返回前几个字节</span><br><span class="line">    readline()      读取一行</span><br><span class="line">    readlines()      一行一行的读取，直至结束</span><br><span class="line">    getcode()      获取状态码</span><br><span class="line">    geturl()      获取url</span><br><span class="line">    getheaders()      获取headers</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载网页</span></span><br><span class="line">url_page = <span class="string">&#x27;http://www.baidu.com&#x27;</span></span><br><span class="line">urllib.request.urlretrieve(url_page, <span class="string">&#x27;baidu.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载图片</span></span><br><span class="line">url_image = <span class="string">&#x27;图片链接&#x27;</span></span><br><span class="line">urllib.request.urlretrieve(url_image, <span class="string">&#x27;tupian.jpg&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载视频</span></span><br><span class="line">url_vedio = <span class="string">&#x27;视频地址&#x27;</span></span><br><span class="line">urllib.request.urlretrieve(url_vedio, <span class="string">&#x27;shipin.mp4&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="url的组成"><a href="#url的组成" class="headerlink" title="url的组成"></a><code>url</code>的组成</h3><table>
+<thead>
+<tr>
+<th>协议</th>
+<th>主机/域名</th>
+<th>端口号</th>
+<th>路径</th>
+<th>参数</th>
+<th>锚点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>http</code>/<code>https</code></td>
+<td><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></td>
+<td>80/443</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>端口号：</p>
+<p><code>http</code>: 80</p>
+<p><code>https</code>: 443</p>
+<p><code>mysql</code>: 3306</p>
+<h3 id="请求对象的定制"><a href="#请求对象的定制" class="headerlink" title="请求对象的定制"></a>请求对象的定制</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(url)</span><br><span class="line"></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line"></span><br><span class="line">遇到了`ua`反爬</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 请求对象的定制,参数要对应</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<h3 id="unicode编码"><a href="#unicode编码" class="headerlink" title="unicode编码"></a>unicode编码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、导入需要使用的库</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、使用相应的方法</span><br><span class="line">name = urllib.parse.quote(<span class="string">&#x27;周杰伦&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、拼接url</span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com/s?wd=&#x27;</span></span><br><span class="line">url = url + name</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、正常使用即可</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">name = urllib.parse.quote(<span class="string">&#x27;周杰伦&#x27;</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com/s?wd=&#x27;</span></span><br><span class="line">url = url + name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求对象的定制,参数要对应</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<h3 id="get请求的urlencode方法"><a href="#get请求的urlencode方法" class="headerlink" title="get请求的urlencode方法"></a>get请求的<code>urlencode</code>方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">urlencode应用场景：多个参数的时候</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、导库</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="number">2</span>、定义字典</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;周杰伦&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;sex&#x27;</span>: <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;location&#x27;</span>: <span class="string">&#x27;中国台湾省&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span>、使用urlencode方法</span><br><span class="line">a = urllib.parse.urlencode(data)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 完整的代码</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">base_url = <span class="string">&#x27;https://www.baidu.com/s?&#x27;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;周杰伦&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;sex&#x27;</span>: <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;location&#x27;</span>: <span class="string">&#x27;中国台湾省&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new_data = urllib.parse.urlencode(data)</span><br><span class="line"></span><br><span class="line">url = base_url + new_data</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/%E7%88%AC%E8%99%AB/"># 爬虫</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
+        
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/06/22/%E6%94%AF%E6%95%99%E4%BA%BA%E5%91%98%E7%96%91%E9%97%AE%E7%AD%94%E7%96%91/">支教人员疑问答疑</a>
+            
+        </section>
+
+    </article>
+</div>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+        !
+        function() {
+        function n(n, e, t) {
+        return n.getAttribute(e) || t
+        }
+        function e(n) {
+        return document.getElementsByTagName(n)
+        }
+        function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+        l: o,
+        z: n(i, "zIndex", -1), //置于主页面背后
+        o: n(i, "opacity", .5), //线条透明度
+        c: n(i, "color", "0,0,0"), //线条颜色
+        n: n(i, "count", 100) //线条数量
+        }
+        }
+        function o() {
+        a = m.width = window.innerWidth ||
+        document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight ||
+        document.documentElement.clientHeight || document.body.clientHeight
+        }
+        function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+        1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+        1), e = x + 1; e < u.length; e++) n = u[e],
+        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+        i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+        2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+        r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+        }
+        var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(n) {
+        window.setTimeout(n, 1e3 / 45)
+        },
+        w = Math.random,
+        y = {
+        x: null,
+        y: null,
+        max: 2e4
+        };
+        m.id = l,
+        m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+        ";opacity:" + d.o,
+        e("body")[0].appendChild(m),
+        o(),
+        window.onresize = o,
+        window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+        },
+        window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+        };
+        for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+        x: h,
+        y: g,
+        xa: v,
+        ya: p,
+        max: 6e3
+        })
+        }
+        u = s.concat([y]),
+        setTimeout(function() {
+        i()
+        },
+        100)
+        } ();
+        </script>
+</body>
+
+</html>
