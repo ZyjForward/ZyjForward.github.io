@@ -74,7 +74,7 @@
                 
                     <a class="menu-item" href="/archives">文章</a>
                 
-                    <a class="menu-item" href="/categories">归档</a>
+                    <a class="menu-item" href="/categories">时间线</a>
                 
                     <a class="menu-item" href="/tags">分类</a>
                 
@@ -99,7 +99,7 @@
                 
                     <a class="menu-item" href="/archives">文章</a>
                 
-                    <a class="menu-item" href="/categories">归档</a>
+                    <a class="menu-item" href="/categories">时间线</a>
                 
                     <a class="menu-item" href="/tags">分类</a>
                 
@@ -222,7 +222,7 @@
         </header>
 
         <div class="post-content">
-            <h2 id="总结与思考"><a href="#总结与思考" class="headerlink" title="总结与思考"></a>总结与思考</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、输出格式控制，是否忘记最后的换行，导致多组输出结果时答案错误。<br>2、注意数据类型的选择，运行的结果是否会越界。</p>
+            <h3 id="总结与思考"><a href="#总结与思考" class="headerlink" title="总结与思考"></a>总结与思考</h3><p>1、输出格式控制，是否忘记最后的换行，导致多组输出结果时答案错误。<br>2、注意数据类型的选择，运行的结果是否会越界。</p>
 <h3 id="最小公倍数算法"><a href="#最小公倍数算法" class="headerlink" title="最小公倍数算法"></a>最小公倍数算法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取两个整数的最小公倍数函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetBs</span><span class="params">(<span class="type">int</span> m,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> x = m*n;</span><br><span class="line">	<span class="type">int</span> y = m%n;</span><br><span class="line">	<span class="keyword">while</span>(y)&#123;</span><br><span class="line">	m = n;</span><br><span class="line">	n = y;</span><br><span class="line">	y = m%n;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x/n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="冒泡排序算法"><a href="#冒泡排序算法" class="headerlink" title="冒泡排序算法"></a>冒泡排序算法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//冒泡排序算法</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; SIZE; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; SIZE - i; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">				<span class="type">double</span> temp = a[j];</span><br><span class="line">				a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">				a[j + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>

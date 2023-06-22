@@ -74,7 +74,7 @@
                 
                     <a class="menu-item" href="/archives">文章</a>
                 
-                    <a class="menu-item" href="/categories">归档</a>
+                    <a class="menu-item" href="/categories">时间线</a>
                 
                     <a class="menu-item" href="/tags">分类</a>
                 
@@ -99,7 +99,7 @@
                 
                     <a class="menu-item" href="/archives">文章</a>
                 
-                    <a class="menu-item" href="/categories">归档</a>
+                    <a class="menu-item" href="/categories">时间线</a>
                 
                     <a class="menu-item" href="/tags">分类</a>
                 
@@ -222,8 +222,7 @@
         </header>
 
         <div class="post-content">
-            <h3 id="globalData"><a href="#globalData" class="headerlink" title="globalData"></a>globalData</h3><p>+++</p>
-<p>所有页面之间通过app.js里面的globalData全局数据进行数据之间的交互，在不同的个页面之间进行修改后，所有的页面之间都同时发生变化，做到数据之间的同步。</p>
+            <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>所有页面之间通过app.js里面的globalData全局数据进行数据之间的交互，在不同的个页面之间进行修改后，所有的页面之间都同时发生变化，做到数据之间的同步。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">globalData在app.<span class="property">js</span>文件中的声明</span><br><span class="line">    <span class="title class_">App</span>(&#123;</span><br><span class="line">      <span class="attr">globalData</span>: <span class="number">1</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">在app.<span class="property">js</span>文件中，设置和修改globalData。</span><br><span class="line"></span><br><span class="line">	设置和其他js文件中设置data值是一样的</span><br><span class="line">    	<span class="title class_">App</span>(&#123;</span><br><span class="line">            <span class="attr">globalData</span>: &#123;</span><br><span class="line">                <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">                <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">            &#125;</span><br><span class="line">		&#125;)</span><br><span class="line"></span><br><span class="line">	app.<span class="property">js</span>中读取globalData，使用<span class="variable language_">this</span></span><br><span class="line">        <span class="title class_">App</span>(&#123;</span><br><span class="line">            <span class="attr">globalData</span>: &#123;</span><br><span class="line">                <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">                <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">onLoad</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">globalData</span>.<span class="property">name</span> = <span class="string">&#x27;李四&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -232,10 +231,7 @@
 
 
 
-
-
-<p>注：个人看法</p>
-<p>​        就是你在一个页面修改数据后，全局变量globalData是发生了变化的，但是你要在另一个页面中的onshow里面进行调用，这样的话才能使得另一个页面实时的获取当前的全局变量globalData。在页面数据发生变化时，同时在另一个页面同步变化。</p>
+<h3 id="注：个人看法"><a href="#注：个人看法" class="headerlink" title="注：个人看法"></a>注：个人看法</h3><p>就是你在一个页面修改数据后，全局变量globalData是发生了变化的，但是你要在另一个页面中的onshow里面进行调用，这样的话才能使得另一个页面实时的获取当前的全局变量globalData。在页面数据发生变化时，同时在另一个页面同步变化。</p>
 
         </div>
 
