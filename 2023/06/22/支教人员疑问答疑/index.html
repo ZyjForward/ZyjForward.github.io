@@ -13,7 +13,7 @@
 
 
 
-<title>暖三川项目成员信息表 | ZyjForward</title>
+<title>支教人员疑问答疑 | ZyjForward</title>
 
 
 
@@ -127,11 +127,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">暖三川项目成员信息表</h1>
+            <h1 class="post-title">支教人员疑问答疑</h1>
             
                 <div class="post-meta">
                     
@@ -157,7 +222,21 @@
         </header>
 
         <div class="post-content">
-            
+            <h3 id="生活篇（包括住宿、吃饭、去往当地路线等相关问题可在此处填写）"><a href="#生活篇（包括住宿、吃饭、去往当地路线等相关问题可在此处填写）" class="headerlink" title="生活篇（包括住宿、吃饭、去往当地路线等相关问题可在此处填写）"></a>生活篇（包括住宿、吃饭、去往当地路线等相关问题可在此处填写）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.如果从长春出发，我们该怎么走啊，搜不到直达的票呀？</span><br><span class="line">	具体的线路在后期会推出     </span><br><span class="line">2.怎么去官亭镇啊？可以讲一讲从西宁出发的具体路线规划吗？     </span><br><span class="line">	后期会推出 或者看一看之前的推送     </span><br><span class="line">3.可以提前到达宿舍吗 ？     </span><br><span class="line">	可以的      </span><br><span class="line">4.洗澡怎么解决呀？有没有洗脸盆？需要自己到当地买吗？需要自己带的生活物品除了衣物还包括哪些啊？     </span><br><span class="line">	镇上有公共浴室 几块钱一次 脸盆有的 不用买 自己带好毛巾等生活用品即可 在当地也可以买到     </span><br><span class="line">5.如果买快递，快递地址是什么？     </span><br><span class="line">	青海省海东市民和回族土族自治县官亭镇中心学校 会到镇上的快递中心 自己去拿</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="教学篇（关于主干课程和特色课程、课程计划、教学用具、教室设备等问题可在此处填写）"><a href="#教学篇（关于主干课程和特色课程、课程计划、教学用具、教室设备等问题可在此处填写）" class="headerlink" title="教学篇（关于主干课程和特色课程、课程计划、教学用具、教室设备等问题可在此处填写）"></a>教学篇（关于主干课程和特色课程、课程计划、教学用具、教室设备等问题可在此处填写）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.化学生物实验室设备有哪些？制剂有哪些？可否提供资金购买？     </span><br><span class="line">	这些会在后期公布上一届遗留清淡 需要买的 暖三川提供资金     </span><br><span class="line">2.我们是提前准备好教学设计还是边上课边准备呢？     </span><br><span class="line">	提前准备好大纲 可以边上边准备     </span><br><span class="line">3.可有资金购买教学用具哪些？     </span><br><span class="line">	我们有很多教学用具 基本不用再买     </span><br><span class="line">4.文印室是否可以使用？     </span><br><span class="line">	我们有自己的打印机（5台）和超级多的打印纸     </span><br><span class="line">5.如果住学生宿舍的话是住几人间？     </span><br><span class="line">	有没有洗浴的地方 宿舍很多 几人间看你们自己分配 镇上有澡堂</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他篇（不属于以上两类问题的困惑可在此处填写，如支教时间，个人建议等）"><a href="#其他篇（不属于以上两类问题的困惑可在此处填写，如支教时间，个人建议等）" class="headerlink" title="其他篇（不属于以上两类问题的困惑可在此处填写，如支教时间，个人建议等）"></a>其他篇（不属于以上两类问题的困惑可在此处填写，如支教时间，个人建议等）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.我们支教结束会有证书吗？什么证书呀？      </span><br><span class="line">	有的，招募的时候在群里发过，可以去看一下     </span><br><span class="line">2.学校里有没有wifi？      </span><br><span class="line">	有的 但好像不快     </span><br><span class="line">3.安全组负责制定安全值日表，请问安全值日的主要包括哪些内容？如桌椅维修？学校周边环境检查？     </span><br><span class="line">	日常教室办公室卫生管理及课秩序安排     </span><br><span class="line">4.什么时候可以确定咱支教的具体时间哇www？     </span><br><span class="line">	（7.25—8.11）</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
         </div>
 
                 <section class="post-tags">
@@ -180,10 +259,8 @@
         
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/06/22/%E6%94%AF%E6%95%99%E4%BA%BA%E5%91%98%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F/">支教人员联系方式</a>
             
-            
-            <a class="next" rel="next" href="/2023/06/08/sql%E8%A7%A6%E5%8F%91%E5%99%A8/">sql触发器</a>
+            <a class="next" rel="next" href="/2023/06/22/%E6%94%AF%E6%95%99%E4%BA%BA%E5%91%98%E6%95%99%E5%AD%A6%E5%88%86%E5%B7%A5/">支教人员教学分工</a>
             
         </section>
 

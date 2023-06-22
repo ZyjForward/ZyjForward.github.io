@@ -13,7 +13,7 @@
 
 
 
-<title>Archives | ZyjForward</title>
+<title>支教人员小组分工明细 | ZyjForward</title>
 
 
 
@@ -124,97 +124,141 @@
     }
 </script>
             <div class="main">
-                <div class="post-wrap archive">
+                <div class="container">
     
     
-        
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
 
-        
-            <h3>2023</h3>
-        
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E9%9A%8F%E7%AC%94/">随笔</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
     
-        
 
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E4%B8%80%E4%BA%9B%E8%A7%84%E8%8C%83/">一些规范</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
     
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">支教人员小组分工明细</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 22, 2023</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/%E6%9A%96%E4%B8%89%E5%B7%9D%E6%94%AF%E6%95%99%E6%B4%BB%E5%8A%A8/">暖三川支教活动</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="队长"><a href="#队长" class="headerlink" title="队长"></a>队长</h3><ul>
+<li>主队：莫远慧</li>
+<li>副队：操逸凡</li>
+<li>副队：张永记</li>
+</ul>
+<h3 id="小组分工"><a href="#小组分工" class="headerlink" title="小组分工"></a>小组分工</h3><p><img src="https://s2.loli.net/2023/06/22/HrRJUXps1bIcYBV.jpg"></p>
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/%E6%9A%96%E4%B8%89%E5%B7%9D%E6%94%AF%E6%95%99%E6%B4%BB%E5%8A%A8/"># 暖三川支教活动</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
         
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/06/22/%E6%94%AF%E6%95%99%E4%BA%BA%E5%91%98%E6%95%99%E5%AD%A6%E5%88%86%E5%B7%A5/">支教人员教学分工</a>
+            
+            
+            <a class="next" rel="next" href="/2023/06/22/%E6%94%AF%E6%95%99%E4%BA%BA%E5%91%98%E5%85%B7%E4%BD%93%E5%88%86%E5%B7%A5/">支教人员具体分工</a>
+            
+        </section>
 
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E7%AE%80%E5%8D%95%E7%9A%84%E7%AE%97%E6%B3%95/">简单的算法</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E6%95%B0%E5%AD%97%E5%88%86%E7%A6%BB/">数字分离</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">递归问题</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">最大的最小值</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E7%BB%9F%E8%AE%A1%E5%AD%97%E6%AF%8D%E7%9A%84%E4%B8%AA%E6%95%B0/">统计字母的个数</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/16/%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E4%B8%8A%E5%8D%87%E5%AD%90%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6/">最长连续上升子列的长度</a>
-            <span class="archive-item-date">April 16, 2023</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2023/04/15/new%E5%92%8Cdelete/">new和delete</a>
-            <span class="archive-item-date">April 15, 2023</span>
-        </article>
-    
-    
-    <nav class="pagination">
-        <a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
-
+    </article>
 </div>
             </div>
             <footer id="footer" class="footer">
