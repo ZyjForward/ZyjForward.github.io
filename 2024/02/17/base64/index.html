@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangyj">
+
+
+
+
+
+<title>base64 | ZyjForward</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Zyj&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Zyj&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">base64</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 17, 2024</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">图片多以base64字符串的形式存储在数据库中，但是我们在平时使用url进行请求。</span><br><span class="line"></span><br><span class="line">最终的归宿是字符串存储，但是我们估计开发为了方便使用url。</span><br><span class="line"></span><br><span class="line">刚开始都自己写，搞了这么个存储方式，现更换成url，但是记录一下这个方法。</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先在js页面引入脚本文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将接口获取的头像临时链接转为 base64 内容</span></span><br><span class="line">  <span class="title function_">base64</span>(<span class="params">url, type</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      wx.<span class="title function_">getFileSystemManager</span>().<span class="title function_">readFile</span>(&#123;</span><br><span class="line">        <span class="attr">filePath</span>: url, <span class="comment">//选择图片返回的相对路径</span></span><br><span class="line">        <span class="attr">encoding</span>: <span class="string">&#x27;base64&#x27;</span>, <span class="comment">//编码格式</span></span><br><span class="line">        <span class="attr">success</span>: <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="title function_">resolve</span>(res.<span class="property">data</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">fail</span>: <span class="function"><span class="params">res</span> =&gt;</span> <span class="title function_">reject</span>(res.<span class="property">errMsg</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用方式</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">base64</span>(e.<span class="property">detail</span>.<span class="property">avatarUrl</span>, <span class="string">&quot;png&quot;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> temp_string = <span class="string">&#x27;data:image/png;base64,&#x27;</span> + res</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">upload_photo</span> = temp_string</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="脚本文件"><a href="#脚本文件" class="headerlink" title="脚本文件"></a>脚本文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fsm = wx.<span class="title function_">getFileSystemManager</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">FILE_BASE_NAME</span> = <span class="string">&#x27;zhiyuexing_lzzzzteam&#x27;</span>; <span class="comment">//自定义文件名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">base64src</span>(<span class="params">base64data, cb</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [, format, bodyData] = <span class="regexp">/data:image\/(\w+);base64,(.*)/</span>.<span class="title function_">exec</span>(base64data) || [];</span><br><span class="line">  <span class="keyword">if</span> (!format) &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;ERROR_BASE64SRC_PARSE&#x27;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> filePath = <span class="string">`<span class="subst">$&#123;wx.env.USER_DATA_PATH&#125;</span>/<span class="subst">$&#123;FILE_BASE_NAME&#125;</span>.<span class="subst">$&#123;format&#125;</span>`</span>;</span><br><span class="line">  <span class="keyword">const</span> buffer = wx.<span class="title function_">base64ToArrayBuffer</span>(bodyData);</span><br><span class="line">  fsm.<span class="title function_">writeFile</span>(&#123;</span><br><span class="line">    filePath,</span><br><span class="line">    <span class="attr">data</span>: buffer,</span><br><span class="line">    <span class="attr">encoding</span>: <span class="string">&#x27;binary&#x27;</span>,</span><br><span class="line">    <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">cb</span>(filePath);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">fail</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> (<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;ERROR_BASE64SRC_WRITE&#x27;</span>));</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = base64src;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/"># 笔记</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
+        
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/06/27/python%E5%9F%BA%E7%A1%80%E7%AF%87/">python基础篇</a>
+            
+        </section>
+
+    </article>
+</div>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+        !
+        function() {
+        function n(n, e, t) {
+        return n.getAttribute(e) || t
+        }
+        function e(n) {
+        return document.getElementsByTagName(n)
+        }
+        function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+        l: o,
+        z: n(i, "zIndex", -1), //置于主页面背后
+        o: n(i, "opacity", .5), //线条透明度
+        c: n(i, "color", "0,0,0"), //线条颜色
+        n: n(i, "count", 100) //线条数量
+        }
+        }
+        function o() {
+        a = m.width = window.innerWidth ||
+        document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight ||
+        document.documentElement.clientHeight || document.body.clientHeight
+        }
+        function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+        1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+        1), e = x + 1; e < u.length; e++) n = u[e],
+        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+        i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+        2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+        r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+        }
+        var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(n) {
+        window.setTimeout(n, 1e3 / 45)
+        },
+        w = Math.random,
+        y = {
+        x: null,
+        y: null,
+        max: 2e4
+        };
+        m.id = l,
+        m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+        ";opacity:" + d.o,
+        e("body")[0].appendChild(m),
+        o(),
+        window.onresize = o,
+        window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+        },
+        window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+        };
+        for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+        x: h,
+        y: g,
+        xa: v,
+        ya: p,
+        max: 6e3
+        })
+        }
+        u = s.concat([y]),
+        setTimeout(function() {
+        i()
+        },
+        100)
+        } ();
+        </script>
+</body>
+
+</html>
