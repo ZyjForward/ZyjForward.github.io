@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangyj">
+
+
+
+
+
+<title>WebSocket | ZyjForward</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Zyj&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Zyj&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">WebSocket</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 30, 2024</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/WebSocket/">WebSocket</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h3><p><code>http</code>（无状态、短连接）是不能由服务器主动向客户端发送请求，展示信息的。</p>
+<p>我们要想实现一个人发了信息，能够实时展示在其它人的页面，有以下的方法。</p>
+<ul>
+<li>轮询</li>
+<li>长轮询</li>
+<li><code>WebSocket</code></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/03/30/kNUY6noySZaqv8J.png" alt="image-20240320231144045"></p>
+<p><code>WebSocket</code>是一种协议，设计用于提供低延时、==全双工==和长期运行的连接。</p>
+<ul>
+<li>==轮询==（大量的请求与响应）</li>
+<li>==长轮询==（频繁的建立和关闭连接）</li>
+<li><code>WebSocket</code>的优势<ul>
+<li>双向实时通信<ul>
+<li>允许在单个、长时间的连接上进行双向实时通信。在需要快速实时更新的应用程序中，比<code>http</code>更加高效</li>
+</ul>
+</li>
+<li>降低延迟<ul>
+<li>链接一旦建立就会保持开放，数据可以在客户端和服务器之间以比<code>http</code>更低的延迟进行传输</li>
+</ul>
+</li>
+<li>更高效的资源利用<ul>
+<li>可以减少重复请求和响应的开销，因为它的链接只需要建立一次</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、心跳机制"><a href="#2、心跳机制" class="headerlink" title="2、心跳机制"></a>2、心跳机制</h3><ul>
+<li><p>心跳包</p>
+<ul>
+<li><p>一种特殊的数据包</p>
+<ul>
+<li>不包含任何实际数据，仅用来维持连接状态</li>
+</ul>
+</li>
+<li><p>一个空数据帧</p>
+<ul>
+<li>定期发送，确保链接仍然有效，避免长时间没有数据传输而被中断</li>
+</ul>
+</li>
+<li><p>==如果一段时间内没有收到对方的心跳包，就可以认为连接已经断开==</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、限制"><a href="#3、限制" class="headerlink" title="3、限制"></a>3、限制</h3><ul>
+<li>不提供加密功能</li>
+<li>不支持古老的浏览器</li>
+<li>优化很重要<ul>
+<li>保持长连接需要服务器不断地维护和处理连接状态，需要优化性能</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、Django"><a href="#4、Django" class="headerlink" title="4、Django"></a>4、<code>Django</code></h3><p>==<code>Django</code>默认不支持<code>WebSocket</code>，需要进行配置==</p>
+<h4 id="4-1、下载channels库和daphne库"><a href="#4-1、下载channels库和daphne库" class="headerlink" title="4.1、下载channels库和daphne库"></a>4.1、下载<code>channels</code>库和<code>daphne</code>库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -U channels[&quot;daphne&quot;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2、配置setting-py文件"><a href="#4-2、配置setting-py文件" class="headerlink" title="4.2、配置setting.py文件"></a>4.2、配置<code>setting.py</code>文件</h4><p>在<code>setting.py</code>进行注册</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    &#x27;daphne&#x27;,</span><br><span class="line">      ···</span><br><span class="line">      ···</span><br><span class="line">    &#x27;channels&#x27;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>配置<code>ASGI_APPLICATION</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ASGI_APPLICATION = &#x27;项目名.asgi.application&#x27;</span><br><span class="line"></span><br><span class="line">使用下面这个帮助我们管理多人聊天</span><br><span class="line">CHANNEL_LAYERS = &#123;</span><br><span class="line">    &quot;default&quot;: &#123;</span><br><span class="line">        &quot;BACKEND&quot;: &quot;channels.layers.InMemoryChannelLayer&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3、验证"><a href="#4-3、验证" class="headerlink" title="4.3、验证"></a>4.3、验证</h4><p>启动<code>django</code>服务，若出现以下内容则表示配置成功</p>
+<p><img src="https://s2.loli.net/2024/03/30/wCfiQpYo7Mrg3ZO.png" alt="image-20240330100634783"></p>
+<h4 id="4-4、修改asgi-py文件"><a href="#4-4、修改asgi-py文件" class="headerlink" title="4.4、修改asgi.py文件"></a>4.4、修改<code>asgi.py</code>文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from channels.routing import ProtocolTypeRouter, URLRouter</span><br><span class="line"></span><br><span class="line">from . import routing</span><br><span class="line"></span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    &#x27;http&#x27;: get_asgi_application(),</span><br><span class="line">    &#x27;websocket&#x27;: URLRouter(websocket_urlpatterns),</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-5、创建ws路由"><a href="#4-5、创建ws路由" class="headerlink" title="4.5、创建ws路由"></a>4.5、创建<code>ws</code>路由</h4><p>创建<code>websocket</code>服务端文件<code>consumers.py</code>文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from channels.generic.websocket import AsyncWebsocketConsumer</span><br><span class="line"></span><br><span class="line">#异步方法</span><br><span class="line">class MyConsumer(AsyncWebsocketConsumer):</span><br><span class="line">    async def connect(self):</span><br><span class="line">        await self.accept()</span><br><span class="line"></span><br><span class="line">    async def disconnect(self, close_code):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    async def receive(self, text_data):</span><br><span class="line">        await self.send(text_data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 同步方式，仅作示例，不使用</span><br><span class="line">class SyncConsumer(WebsocketConsumer):</span><br><span class="line">    def connect(self):</span><br><span class="line">        self.accept()</span><br><span class="line"></span><br><span class="line">    def disconnect(self, close_code):</span><br><span class="line">        pass</span><br><span class="line">    # 从WebSocket中接收消息</span><br><span class="line">    def receive(self, text_data=None, bytes_data=None):</span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-6、创建routing-py文件"><a href="#4-6、创建routing-py文件" class="headerlink" title="4.6、创建routing.py文件"></a>4.6、创建<code>routing.py</code>文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django.urls import re_path</span><br><span class="line">from . import consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    re_path(r&#x27;websocket/$&#x27;, consumers.MyConsumer.as_asgi()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-7、编写前端页面的websocket"><a href="#4-7、编写前端页面的websocket" class="headerlink" title="4.7、编写前端页面的websocket"></a>4.7、编写前端页面的<code>websocket</code></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var socket = new WebSocket(&quot;ws:127.0.0.1:8000/websocket/&quot;);</span><br><span class="line"></span><br><span class="line">socket.onopen = function () &#123;</span><br><span class="line">    console.log(&#x27;连接成功&#x27;);//成功连接上Websocket</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、示例"><a href="#5、示例" class="headerlink" title="5、示例"></a>5、示例</h3><h4 id="5-1、前端"><a href="#5-1、前端" class="headerlink" title="5.1、前端"></a>5.1、前端</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>myserver<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;message&quot;</span> <span class="attr">id</span>=<span class="string">&quot;message&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入&quot;</span> <span class="attr">id</span>=<span class="string">&quot;txt&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;发送&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;sendMessage()&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        socket = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">&quot;ws://127.0.0.1:8000/room/123&quot;</span>)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        socket.<span class="property">onopen</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            socket.<span class="title function_">send</span>(<span class="string">&#x27;hello,world!&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        socket.<span class="property">onmessage</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">            tag.<span class="property">innerText</span> = event.<span class="property">data</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;message&#x27;</span>).<span class="title function_">appendChild</span>(tag)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">sendMessage</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;txt&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">            socket.<span class="title function_">send</span>(tag.<span class="property">value</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2、后端"><a href="#5-2、后端" class="headerlink" title="5.2、后端"></a>5.2、后端</h4><p>项目目录</p>
+<p><img src="https://s2.loli.net/2024/03/30/JghVyTtZANmHlIE.png" alt="image-20240330101629850"></p>
+<p><code>routing.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> myapp <span class="keyword">import</span> consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    re_path(<span class="string">r&quot;room/123&quot;</span>, consumers.ChatConsumer.as_asgi()),</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>consumers.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> channels.generic.websocket <span class="keyword">import</span> WebsocketConsumer</span><br><span class="line"><span class="keyword">from</span> channels.exceptions <span class="keyword">import</span> StopConsumer</span><br><span class="line"><span class="keyword">from</span> asgiref.sync <span class="keyword">import</span> async_to_sync</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChatConsumer</span>(<span class="title class_ inherited__">WebsocketConsumer</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">websocket_connect</span>(<span class="params">self, message</span>):</span><br><span class="line">        <span class="comment"># print(&#x27;连接成功&#x27;)</span></span><br><span class="line">        <span class="comment"># 有客户端向后端发送websocket请求时，自动触发</span></span><br><span class="line">        <span class="comment"># 服务端运行和客户端创建连接</span></span><br><span class="line">        self.accept()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># self.send(&#x27;您好，请问你有什么需求？&#x27;)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将客户端的连接存储起来</span></span><br><span class="line">        <span class="comment"># async_to_sync(self.channel_layer.group_add)(&#x27;my-team&#x27;, self.channel_name)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">websocket_receive</span>(<span class="params">self, msg</span>):</span><br><span class="line">        <span class="built_in">print</span>(msg[<span class="string">&#x27;text&#x27;</span>])</span><br><span class="line">        <span class="comment"># headers = &#123;</span></span><br><span class="line">        <span class="comment">#     &#x27;Content-Type&#x27;: &#x27;application/json&#x27;</span></span><br><span class="line">        <span class="comment"># &#125;</span></span><br><span class="line">        <span class="comment"># params = &#123;</span></span><br><span class="line">        <span class="comment">#     &#x27;access_token&#x27;: &#x27;24.4c18ca00fd26adae686089aaeae3813e.2592000.1713699576.282335-54834605&#x27;,</span></span><br><span class="line">        <span class="comment"># &#125;</span></span><br><span class="line">        <span class="comment"># data = &#123;</span></span><br><span class="line">        <span class="comment">#     &quot;messages&quot;: [</span></span><br><span class="line">        <span class="comment">#         &#123;&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: msg[&#x27;text&#x27;]&#125;</span></span><br><span class="line">        <span class="comment">#     ]</span></span><br><span class="line">        <span class="comment"># &#125;</span></span><br><span class="line">        <span class="comment"># # 浏览器像后端发送数据时触发，用户传送的数据为message，用send方法回复</span></span><br><span class="line">        <span class="comment"># response = requests.post(&#x27;https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions_pro&#x27;,</span></span><br><span class="line">        <span class="comment">#                          headers=headers, json=data, params=params)</span></span><br><span class="line">        <span class="comment"># result = response.json()[&#x27;result&#x27;]</span></span><br><span class="line">        self.send(<span class="string">&#x27;hello,bupt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 通知组内的所有成员</span></span><br><span class="line">        <span class="comment"># async_to_sync(self.channel_layer.group_send)(&#x27;my-team&#x27;, &#123;&quot;type&quot;: &#x27;sendmessage&#x27;, &#x27;msg&#x27;: message&#125;)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># def sendmessage(self, event):</span></span><br><span class="line">    <span class="comment">#     content = event[&#x27;msg&#x27;][&#x27;text&#x27;]</span></span><br><span class="line">    <span class="comment">#     self.send(content)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">websocket_disconnect</span>(<span class="params">self, message</span>):</span><br><span class="line">        <span class="comment"># 客户端与服务端主动断开连接时触发</span></span><br><span class="line">        <span class="comment"># print(&#x27;断开连接&#x27;)</span></span><br><span class="line">        <span class="comment"># async_to_sync(self.channel_layer.group_discard)(&#x27;my-team&#x27;, self.channel_name)</span></span><br><span class="line">        <span class="keyword">raise</span> StopConsumer()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>asgi.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.core.asgi <span class="keyword">import</span> get_asgi_application</span><br><span class="line"><span class="keyword">from</span> channels.routing <span class="keyword">import</span> ProtocolTypeRouter, URLRouter</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> routing</span><br><span class="line"></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;myserver.settings&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># application = get_asgi_application()</span></span><br><span class="line"></span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    <span class="string">&quot;http&quot;</span>: get_asgi_application(),</span><br><span class="line">    <span class="string">&quot;websocket&quot;</span>: URLRouter(routing.websocket_urlpatterns)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="6、参考文献"><a href="#6、参考文献" class="headerlink" title="6、参考文献"></a>6、参考文献</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46042132/article/details/130994781">https://blog.csdn.net/qq_46042132/article/details/130994781</a></p>
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/WebSocket/"># WebSocket</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
+        
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/03/24/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+            
+        </section>
+
+    </article>
+</div>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+        !
+        function() {
+        function n(n, e, t) {
+        return n.getAttribute(e) || t
+        }
+        function e(n) {
+        return document.getElementsByTagName(n)
+        }
+        function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+        l: o,
+        z: n(i, "zIndex", -1), //置于主页面背后
+        o: n(i, "opacity", .5), //线条透明度
+        c: n(i, "color", "0,0,0"), //线条颜色
+        n: n(i, "count", 100) //线条数量
+        }
+        }
+        function o() {
+        a = m.width = window.innerWidth ||
+        document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight ||
+        document.documentElement.clientHeight || document.body.clientHeight
+        }
+        function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+        1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+        1), e = x + 1; e < u.length; e++) n = u[e],
+        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+        i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+        2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+        r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+        }
+        var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(n) {
+        window.setTimeout(n, 1e3 / 45)
+        },
+        w = Math.random,
+        y = {
+        x: null,
+        y: null,
+        max: 2e4
+        };
+        m.id = l,
+        m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+        ";opacity:" + d.o,
+        e("body")[0].appendChild(m),
+        o(),
+        window.onresize = o,
+        window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+        },
+        window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+        };
+        for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+        x: h,
+        y: g,
+        xa: v,
+        ya: p,
+        max: 6e3
+        })
+        }
+        u = s.concat([y]),
+        setTimeout(function() {
+        i()
+        },
+        100)
+        } ();
+        </script>
+</body>
+
+</html>
