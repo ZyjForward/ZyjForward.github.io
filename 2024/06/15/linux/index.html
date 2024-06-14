@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangyj">
+
+
+
+
+
+<title>linux | ZyjForward</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Zyj&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Zyj&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">linux</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 15, 2024</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/linux/">linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="1、VMWARE安装检测"><a href="#1、VMWARE安装检测" class="headerlink" title="1、VMWARE安装检测"></a>1、VMWARE安装检测</h3><p>cmd中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncpa.cpl</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2024/06/15/ha9MOm2THA4r6GZ.png" alt="image-20240426205751895"></p>
+<p>快速打开上述界面，观察是否配置成功。</p>
+<p>观察到上诉内容，证明安装成功！</p>
+<h3 id="2、安装ubuntu系统"><a href="#2、安装ubuntu系统" class="headerlink" title="2、安装ubuntu系统"></a>2、安装ubuntu系统</h3><p>到官网下载好相应的系统后，在vmware中配置即可。</p>
+<p>简单的情况下，按照系统默认的配置的话就是无脑操作下一步即可。</p>
+<h3 id="3、Xshell"><a href="#3、Xshell" class="headerlink" title="3、Xshell"></a>3、<code>Xshell</code></h3><p>为了方便使用，我们借助<code>Xshell</code>软件辅助。</p>
+<p>因为通过vmware的话，每次切换都很难受。</p>
+<ul>
+<li>问题一<ul>
+<li>虚拟机的linux可能没有安装ssh，需要自行安装。</li>
+</ul>
+</li>
+<li>问题二<ul>
+<li>配置文件不允许使用密码登录，需要修改配置文件。</li>
+</ul>
+</li>
+<li>问题三<ul>
+<li>一定要确保登录的用户名和密码正确。</li>
+</ul>
+</li>
+</ul>
+<p>以上修改后都需要重启配置文件。</p>
+<p>==固定IP==</p>
+<p>当下每次重启，虚拟机的linux的IP可能发生变化，连接失败的话，需要修改配置。</p>
+<p>后续我们将固定IP，敬请期待。</p>
+<h3 id="4、VMWARE快照功能"><a href="#4、VMWARE快照功能" class="headerlink" title="4、VMWARE快照功能"></a>4、VMWARE快照功能</h3><p>==类似于游戏存档，当运行出错后，可以恢复存档的位置。==</p>
+<p>建议先关掉虚拟机，再拍摄快照，这样拍摄快照非常快。</p>
+<h3 id="5、linux命令"><a href="#5、linux命令" class="headerlink" title="5、linux命令"></a>5、<code>linux</code>命令</h3><ul>
+<li>命令行<ul>
+<li>终端窗口</li>
+</ul>
+</li>
+<li>命令<ul>
+<li>指令</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/06/15/d5Zov6hcsXxApfN.png" alt="image-20240427115331052"></p>
+<h4 id="5-1、ls-命令"><a href="#5-1、ls-命令" class="headerlink" title="5.1、ls 命令"></a>5.1、ls 命令</h4><p><img src="https://s2.loli.net/2024/06/15/ZzTUEvDIAr5XnpM.png" alt="image-20240427115505045"></p>
+<ul>
+<li>-a 选项<ul>
+<li>表示all的意思，列出全部文件(包含隐藏的文件/文件夹)</li>
+</ul>
+</li>
+<li>-l 选项<ul>
+<li>以列表(竖向排列)的形式展示内容，并展示更多信息</li>
+</ul>
+</li>
+<li>-h 选项<ul>
+<li>以易于阅读的形式，列出文件大小，如K、M、G</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2、cd-命令"><a href="#5-2、cd-命令" class="headerlink" title="5.2、cd 命令"></a>5.2、cd 命令</h4><p>切换目录</p>
+<h4 id="5-3、pwd-命令"><a href="#5-3、pwd-命令" class="headerlink" title="5.3、pwd 命令"></a>5.3、pwd 命令</h4><p>查看当前工作目录</p>
+<h4 id="5-4、相对路径和绝对路径"><a href="#5-4、相对路径和绝对路径" class="headerlink" title="5.4、相对路径和绝对路径"></a>5.4、相对路径和绝对路径</h4><p><img src="https://s2.loli.net/2024/06/15/Zt3RrWGj7VuHEOY.png" alt="image-20240427133649604"></p>
+<p>特殊路径符</p>
+<p><img src="https://s2.loli.net/2024/06/15/h4JVUtsnFcZ1rkM.png" alt="image-20240427133956717"></p>
+<p>其实我觉得用不到，只要使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ../</span><br><span class="line"></span><br><span class="line">cd /home</span><br><span class="line"></span><br><span class="line">记不住的话，cd ../    ls    一级一级的看</span><br><span class="line"></span><br><span class="line">记住的话就直接 cd 绝对路径    直接找</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-5、mkdir-命令"><a href="#5-5、mkdir-命令" class="headerlink" title="5.5、mkdir 命令"></a>5.5、mkdir 命令</h4><p>==创建新的文件夹==</p>
+<p><img src="https://s2.loli.net/2024/06/15/b6NlBtd1WZXGoJi.png" alt="image-20240427135540331"></p>
+<p><img src="https://s2.loli.net/2024/06/15/vu7sx3nlEGt8DMJ.png" alt="image-20240427135520141"></p>
+<h4 id="5-6、touch-命令"><a href="#5-6、touch-命令" class="headerlink" title="5.6、touch 命令"></a>5.6、touch 命令</h4><p>==创建文件==</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch 文件</span><br><span class="line">创建文件</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-7、cat-命令"><a href="#5-7、cat-命令" class="headerlink" title="5.7、cat 命令"></a>5.7、cat 命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat  文件</span><br><span class="line">查看文件</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-8、more-命令"><a href="#5-8、more-命令" class="headerlink" title="5.8、more 命令"></a>5.8、more 命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">more 文件</span><br><span class="line">以翻页的形式展示                适合于文件内容较多时，与 cat 的不同在于，它不是一下子全部展示出来</span><br><span class="line">q  退出</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-9、cp-命令"><a href="#5-9、cp-命令" class="headerlink" title="5.9、cp 命令"></a>5.9、cp 命令</h4><p><img src="https://s2.loli.net/2024/06/15/9ciNxaZHWQqLldC.png" alt="image-20240427140346770"></p>
+<p>复制文件时直接两个参数即可，但是复制文件夹需要加上 -r 选项</p>
+<h4 id="5-10、mv-命令"><a href="#5-10、mv-命令" class="headerlink" title="5.10、mv 命令"></a>5.10、mv 命令</h4><p>移动文件或者文件夹</p>
+<p><img src="https://s2.loli.net/2024/06/15/NBcWYmshGgMeXAR.png" alt="image-20240427140628408"></p>
+<h4 id="5-11、rm-命令"><a href="#5-11、rm-命令" class="headerlink" title="5.11、rm 命令"></a>5.11、rm 命令</h4><p>rm  可以用于删除文件或者文件夹，删除文件直接生效，删除文件夹会出错，需要加上 -r 选项</p>
+<p>rm -rf  文件或者文件夹   强制删除</p>
+<p><img src="https://s2.loli.net/2024/06/15/rejQnMCflWE3dat.png" alt="image-20240427141138100"></p>
+<h4 id="5-12、which-命令"><a href="#5-12、which-命令" class="headerlink" title="5.12、which 命令"></a>5.12、which 命令</h4><p><img src="https://s2.loli.net/2024/06/15/Han3xGW6EzDPVSs.png" alt="image-20240427141735086"></p>
+<p>==ubuntu中好像是使用whereis 内容==，查看内容</p>
+<h4 id="5-13、vim-命令"><a href="#5-13、vim-命令" class="headerlink" title="5.13、vim 命令"></a>5.13、vim 命令</h4><p><img src="https://s2.loli.net/2024/06/15/WvaPRI4mVDs3cY2.png" alt="image-20240428143908326"></p>
+<p><img src="https://s2.loli.net/2024/06/15/gef67NMaKcrD4hx.png" alt="image-20240428143951740"></p>
+<ul>
+<li><p>i 键从命令模式进入输入模式</p>
+</li>
+<li><p>/ 键进入搜索模式，n 查看搜索结果的下一个，N 查看搜索结果的上一个</p>
+</li>
+<li><p>dd 删除光标当前所在的行</p>
+</li>
+<li><p>yy 复制当前的行</p>
+</li>
+<li><p>p粘贴复制的内容</p>
+</li>
+<li><p>u 撤销修改</p>
+</li>
+<li><p>ctrl + r 反向撤销修改</p>
+</li>
+</ul>
+<h4 id="5-14、chmod-命令"><a href="#5-14、chmod-命令" class="headerlink" title="5.14、chmod 命令"></a>5.14、chmod 命令</h4><p>修改文件或者文件夹的权限</p>
+<p><img src="https://s2.loli.net/2024/06/15/9UDtXylFEHRgOBW.png" alt="image-20240428223239871"></p>
+<h4 id="5-15、systemctl-命令"><a href="#5-15、systemctl-命令" class="headerlink" title="5.15、systemctl 命令"></a>5.15、systemctl 命令</h4><p><img src="https://s2.loli.net/2024/06/15/5LhW4U6nI7sGewz.png" alt="image-20240428231922630"></p>
+<h4 id="5-16、ln-命令"><a href="#5-16、ln-命令" class="headerlink" title="5.16、ln 命令"></a>5.16、ln 命令</h4><p><img src="https://s2.loli.net/2024/06/15/xCX2wL8dT6Q45E3.png" alt="image-20240428232245887"></p>
+<h4 id="5-17、date-命令"><a href="#5-17、date-命令" class="headerlink" title="5.17、date 命令"></a>5.17、date 命令</h4><p><img src="https://s2.loli.net/2024/06/15/1h6oqmInuDeLSU5.png" alt="image-20240428233039182"></p>
+<p>显示当前的时间，==设置以特定的格式展示==</p>
+<p>当前时区显示不对，可以修改时区</p>
+<p>为了自动联网校准时间，使用ntp</p>
+<h4 id="5-18、ping-命令"><a href="#5-18、ping-命令" class="headerlink" title="5.18、ping 命令"></a>5.18、ping 命令</h4><p>测试网络是否连通</p>
+<h4 id="5-19、wget-命令"><a href="#5-19、wget-命令" class="headerlink" title="5.19、wget 命令"></a>5.19、wget 命令</h4><p><img src="https://s2.loli.net/2024/06/15/w7VyJUrdb1fnxDe.png" alt="image-20240428234739378"></p>
+<h4 id="5-20、curl-命令"><a href="#5-20、curl-命令" class="headerlink" title="5.20、curl 命令"></a>5.20、curl 命令</h4><p><img src="https://s2.loli.net/2024/06/15/N3VGtJ1afYCETmU.png" alt="image-20240428234908786"></p>
+<h4 id="5-21、ps-命令"><a href="#5-21、ps-命令" class="headerlink" title="5.21、ps 命令"></a>5.21、ps 命令</h4><p>查看当前的进程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-22、kill-命令"><a href="#5-22、kill-命令" class="headerlink" title="5.22、kill 命令"></a>5.22、kill 命令</h4><p><img src="https://s2.loli.net/2024/06/15/UYn5INqfeE7zT8Z.png" alt="image-20240429000219967"></p>
+<h3 id="6、权限问题"><a href="#6、权限问题" class="headerlink" title="6、权限问题"></a>6、权限问题</h3><p><img src="https://s2.loli.net/2024/06/15/G57xkupQdrvysOW.png" alt="image-20240428220737274"></p>
+<p>切换到 root 用户</p>
+<p><img src="https://s2.loli.net/2024/06/15/CE3F8lANseSZoxp.png" alt="image-20240428220927545"></p>
+<p>退出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl + d</span><br><span class="line"></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2024/06/15/zcD6Y8pA2roPWKT.png" alt="image-20240428221134493"></p>
+<h3 id="7、linux设置固定IP"><a href="#7、linux设置固定IP" class="headerlink" title="7、linux设置固定IP"></a>7、linux设置固定IP</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n84y1i7td/?p=35&spm_id_from=pageDriver&vd_source=86e56f7e58ffdf635fdb18429a4cf610">视频教程</a></p>
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/linux/"># linux</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
+        
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/05/13/matplotlib/">matplotlib</a>
+            
+        </section>
+
+    </article>
+</div>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+        !
+        function() {
+        function n(n, e, t) {
+        return n.getAttribute(e) || t
+        }
+        function e(n) {
+        return document.getElementsByTagName(n)
+        }
+        function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+        l: o,
+        z: n(i, "zIndex", -1), //置于主页面背后
+        o: n(i, "opacity", .5), //线条透明度
+        c: n(i, "color", "0,0,0"), //线条颜色
+        n: n(i, "count", 100) //线条数量
+        }
+        }
+        function o() {
+        a = m.width = window.innerWidth ||
+        document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight ||
+        document.documentElement.clientHeight || document.body.clientHeight
+        }
+        function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+        1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+        1), e = x + 1; e < u.length; e++) n = u[e],
+        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+        i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+        2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+        r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+        }
+        var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(n) {
+        window.setTimeout(n, 1e3 / 45)
+        },
+        w = Math.random,
+        y = {
+        x: null,
+        y: null,
+        max: 2e4
+        };
+        m.id = l,
+        m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+        ";opacity:" + d.o,
+        e("body")[0].appendChild(m),
+        o(),
+        window.onresize = o,
+        window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+        },
+        window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+        };
+        for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+        x: h,
+        y: g,
+        xa: v,
+        ya: p,
+        max: 6e3
+        })
+        }
+        u = s.concat([y]),
+        setTimeout(function() {
+        i()
+        },
+        100)
+        } ();
+        </script>
+</body>
+
+</html>
