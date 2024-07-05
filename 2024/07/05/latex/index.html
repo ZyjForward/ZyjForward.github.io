@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Zhangyj">
+
+
+
+
+
+<title>latex | ZyjForward</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Zyj&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Zyj&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/categories">时间线</a>
+                
+                    <a class="menu-item" href="/tags">分类</a>
+                
+                    <a class="menu-item" href="/about">我</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">latex</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/about">Zhangyj</a>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 5, 2024</a>
+                        </span>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                        <span class="post-category">
+                    Tag:
+                            
+                                <a href="/tags/latex/">latex</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>latex</p>
+<p>+++</p>
+<h3 id="1、latex是什么"><a href="#1、latex是什么" class="headerlink" title="1、latex是什么"></a>1、latex是什么</h3><p>latex就是一个排版工具，方便对文章进行排版。</p>
+<p>其具有非常强大的插入数字公式和图片的功能。</p>
+<h3 id="2、latex怎么用"><a href="#2、latex怎么用" class="headerlink" title="2、latex怎么用"></a>2、latex怎么用</h3><ul>
+<li>线上环境<ul>
+<li>overleaf</li>
+</ul>
+</li>
+<li>线下环境<ul>
+<li><code>vscode + texlive</code></li>
+</ul>
+</li>
+</ul>
+<p>按照其语法格式进行修改即可。</p>
+<h3 id="3、latex怎么样"><a href="#3、latex怎么样" class="headerlink" title="3、latex怎么样"></a>3、latex怎么样</h3><ul>
+<li><p>上手很容易</p>
+</li>
+<li><p>独立开发一个有点难，但是没有必要去开发它</p>
+</li>
+<li><p>易用难精</p>
+</li>
+</ul>
+<h3 id="4、latex模板"><a href="#4、latex模板" class="headerlink" title="4、latex模板"></a>4、latex模板</h3><p>latex模板规定了一篇文章的所有格式。</p>
+<p>使用latex模板，我们需要在其原有的基础上进行修改即可，例如：标题、作者、撰写正文等等。</p>
+<p>优点：省时美观、撰写标准。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% 注释</span><br><span class="line">在 % 后面的内容会被注释掉，生成PDF时不会显示。</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-1、特殊的符号"><a href="#4-1、特殊的符号" class="headerlink" title="4.1、特殊的符号"></a>4.1、特殊的符号</h4><p><img src="https://font-1308333169.cos.ap-beijing.myqcloud.com/1.png" alt="image-20240704113420149"></p>
+<h3 id="5、latex正文"><a href="#5、latex正文" class="headerlink" title="5、latex正文"></a>5、latex正文</h3><p>使用指令控制文本的显示。</p>
+<h3 id="6、latex数学公式"><a href="#6、latex数学公式" class="headerlink" title="6、latex数学公式"></a>6、latex数学公式</h3><p>数学公式编辑能力很强大，也是其火爆的原因之一。</p>
+<ul>
+<li><p>行内嵌</p>
+<ul>
+<li>$公式$，举例：$\alpha+\beta$</li>
+</ul>
+</li>
+<li><p>有编号公式</p>
+<ul>
+<li>```latex<br>\begin{equation}<pre><code>\alpha^2+\beta^2=\gamma^2
+</code></pre>
+\end{equation}\autoref{eq1}<br>\begin{equation}\latex{eq1}<pre><code>\alpha^2+\beta^2=\gamma^2
+</code></pre>
+\end{equation}<br>自行引用该公式，在该公式的右边存在编号，当内容发生变化时。编号会随之自行更新。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 无编号公式</span><br><span class="line"></span><br><span class="line">  - ```latex</span><br><span class="line">    \[</span><br><span class="line">    \alpha^2+\beta^2=\gamma^2</span><br><span class="line">    \]</span><br><span class="line">    </span><br><span class="line">    $$ \alpha^2+\beta^2=\gamma^2 $$</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>多行公式</p>
+<ul>
+<li><p>1、导入依赖包</p>
+</li>
+<li><p>```<br>\usepackage{amsmath}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 2、使用</span><br><span class="line"></span><br><span class="line">- ```latex</span><br><span class="line">  \begin&#123;equation&#125;\label&#123;eq0&#125;</span><br><span class="line">  \begin&#123;split&#125;</span><br><span class="line">  &amp;A+B+C+D+E+F+G+H+I\</span><br><span class="line">  &amp;=G+K+L+M+N+O+P+Q+R+S+T+U+V+W\\</span><br><span class="line">  &amp;=10000000000000</span><br><span class="line">  \end&#123;split&#125;</span><br><span class="line">  \end&#123;equation&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>分类讨论公式</p>
+<ul>
+<li>```latex<br>\begin{equation}\label{eq1}<br>F(x)=<br>\begin{cases}<br>0&amp;,\text{if $x&lt;0$}\<br>x+1&amp;,\text{if $x&gt;0$}\<br>1&amp;,\text{oteherwise.}<br>\end{cases}<br>\end{equation}<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">将latex公式转换成word格式工具</span><br><span class="line"></span><br><span class="line">```latex</span><br><span class="line">美观的查看</span><br><span class="line">https://www.latexlive.com</span><br><span class="line">复制使用</span><br><span class="line">https://web.xiaoyv.com.cn/h5/LatexToMathML/index.html</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="7、latex图片"><a href="#7、latex图片" class="headerlink" title="7、latex图片"></a>7、latex图片</h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=12cm]&#123;figures/mcmthesis-aaa.eps&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;aa&#125;</span><br><span class="line"><span class="keyword">\label</span>&#123;fig:aa&#125;</span><br><span class="line">end&#123;figure&#125;</span><br><span class="line"></span><br><span class="line">1、<span class="keyword">\centering</span> 居中显示</span><br><span class="line">2、width=12cm 图片的宽度</span><br><span class="line">3、figures/mcmthesis-aaa.eps 图片的相对路径</span><br><span class="line">4、<span class="keyword">\caption</span>&#123;aa&#125; 图片的标题和说明</span><br><span class="line">5、<span class="keyword">\label</span>&#123;fig:aa&#125; 图片的标签</span><br><span class="line"></span><br><span class="line">需要使用依赖包 graphicx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="8、latex表格"><a href="#8、latex表格" class="headerlink" title="8、latex表格"></a>8、latex表格</h3><p>latex表格代码生成网站</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.latex-tables.com</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+                <section class="post-tags">
+                    <div>
+                        <span>Tag(s):</span>
+                        <span class="tag">
+                            
+                            
+                                <a href="/tags/latex/"># latex</a>
+                            
+                                
+                        </span>
+                    </div>
+                    <div>
+                        <a href="javascript:window.history.back();">back</a>
+                        <span>· </span>
+                        <a href="/">home</a>
+                    </div>
+                </section>
+        
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/06/15/linux/">linux</a>
+            
+        </section>
+
+    </article>
+</div>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Zhangyj | Thousand Years of Pharynx </span>
+    </div>
+</footer>
+
+    </div>
+
+    <script>
+        !
+        function() {
+        function n(n, e, t) {
+        return n.getAttribute(e) || t
+        }
+        function e(n) {
+        return document.getElementsByTagName(n)
+        }
+        function t() {
+        var t = e("script"),
+        o = t.length,
+        i = t[o - 1];
+        return {
+        l: o,
+        z: n(i, "zIndex", -1), //置于主页面背后
+        o: n(i, "opacity", .5), //线条透明度
+        c: n(i, "color", "0,0,0"), //线条颜色
+        n: n(i, "count", 100) //线条数量
+        }
+        }
+        function o() {
+        a = m.width = window.innerWidth ||
+        document.documentElement.clientWidth || document.body.clientWidth,
+        c = m.height = window.innerHeight ||
+        document.documentElement.clientHeight || document.body.clientHeight
+        }
+        function i() {
+        r.clearRect(0, 0, a, c);
+        var n, e, t, o, m, l;
+        s.forEach(function(i, x) {
+        for (i.x += i.xa, i.y += i.ya, i.xa *= i.x > a || i.x < 0 ? -1 :
+        1, i.ya *= i.y > c || i.y < 0 ? -1 : 1, r.fillRect(i.x - .5, i.y - .5, 1,
+        1), e = x + 1; e < u.length; e++) n = u[e],
+        null !== n.x && null !== n.y && (o = i.x - n.x, m = i.y - n.y, l
+        = o * o + m * m, l < n.max && (n === y && l >= n.max / 2 && (i.x -= .03 * o,
+        i.y -= .03 * m), t = (n.max - l) / n.max, r.beginPath(), r.lineWidth = t /
+        2, r.strokeStyle = "rgba(" + d.c + "," + (t + .2) + ")", r.moveTo(i.x, i.y),
+        r.lineTo(n.x, n.y), r.stroke()))
+        }),
+        x(i)
+        }
+        var a, c, u, m = document.createElement("canvas"),
+        d = t(),
+        l = "c_n" + d.l,
+        r = m.getContext("2d"),
+        x = window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(n) {
+        window.setTimeout(n, 1e3 / 45)
+        },
+        w = Math.random,
+        y = {
+        x: null,
+        y: null,
+        max: 2e4
+        };
+        m.id = l,
+        m.style.cssText = "position:fixed;top:0;left:0;z-index:" + d.z +
+        ";opacity:" + d.o,
+        e("body")[0].appendChild(m),
+        o(),
+        window.onresize = o,
+        window.onmousemove = function(n) {
+        n = n || window.event,
+        y.x = n.clientX,
+        y.y = n.clientY
+        },
+        window.onmouseout = function() {
+        y.x = null,
+        y.y = null
+        };
+        for (var s = [], f = 0; d.n > f; f++) {
+        var h = w() * a,
+        g = w() * c,
+        v = 2 * w() - 1,
+        p = 2 * w() - 1;
+        s.push({
+        x: h,
+        y: g,
+        xa: v,
+        ya: p,
+        max: 6e3
+        })
+        }
+        u = s.concat([y]),
+        setTimeout(function() {
+        i()
+        },
+        100)
+        } ();
+        </script>
+</body>
+
+</html>
